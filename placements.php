@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     $CTC2=$_POST['CTC2'];
     $psem=$_POST['psem'];
   
-    $sql = "SELECT * FROM placements NATURAL JOIN student_details";
+    $sql = "SELECT A.*, B.name, C.cname FROM placements A NATURAL JOIN student_details B NATURAL JOIN companies C";
 	$result = mysqli_query($db, $sql);
 	$count = mysqli_num_rows($result);
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                     {
                         if ($row['psem'] == (int)$psem || $psem =="")
                         {
-                            printf("%s ,%s , %s , %s , %s", $row["rollno"], $row['name'], $row['ccode'], $row['ctc'], $row['psem']);
+                            printf("%s ,%s , %s , %s , %s", $row["rollno"], $row['name'], $row['cname'], $row['ctc'], $row['psem']);
 			                echo "<br>";
                         }
                     }
