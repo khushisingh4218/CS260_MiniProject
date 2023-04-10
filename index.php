@@ -58,6 +58,7 @@ if(isset($_POST["userlogin"])){
         if($row["id"]==$id){
             if($row["passw"]==$passw && $row["entity"]==$entity){
                 $_SESSION["entity"] = $entity;
+                $_SESSION["id"] = $id;
                 header("Location: http://localhost/CS260_MiniProject/tpchome.php");
             }else{
                 echo "Invalid login";
