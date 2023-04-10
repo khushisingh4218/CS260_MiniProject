@@ -36,40 +36,45 @@ $db = mysqli_connect("localhost", "root", "mysql_pass_23", "tpc");
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 
 {
-    $ccode= $_POST['ccode'];
-    $CTC=$_POST['CTC'];
-    $CTC2=$_POST['CTC2'];
-    $psem=$_POST['psem'];
-  
-    $sql = "SELECT A.*, B.name, C.cname FROM placements A NATURAL JOIN student_details B NATURAL JOIN companies C";
-	$result = mysqli_query($db, $sql);
-	$count = mysqli_num_rows($result);
-    $a=0;
-
-	if ($count < 1) {
-		echo "<p>No results found</p>";
-	} else {
-        echo "<p>Showing results for the given filters... </p>";
-
-        while ($row = $result -> fetch_assoc()){
-            if ($row['psem'] ==(int)$psem || $psem== "")
-            {
-                if( $row['ccode'] == $ccode || $ccode =="")
+    if(isset($_POST["pladd"])){
+        header("Location: http://localhost/CS260_MiniProject/placementadd.php");
+    }else{
+        $ccode= $_POST['ccode'];
+        $CTC=$_POST['CTC'];
+        $CTC2=$_POST['CTC2'];
+        $psem=$_POST['psem'];
+      
+        $sql = "SELECT A.*, B.name, C.cname FROM placements A NATURAL JOIN student_details B NATURAL JOIN companies C";
+        $result = mysqli_query($db, $sql);
+        $count = mysqli_num_rows($result);
+        $a=0;
+    
+        if ($count < 1) {
+            echo "<p>No results found</p>";
+        } else {
+            echo "<p>Showing results for the given filters... </p>";
+    
+            while ($row = $result -> fetch_assoc()){
+                if ($row['psem'] ==(int)$psem || $psem== "")
                 {
-                    if( $row['ctc'] >= (int)$CTC || $CTC =="")
+                    if( $row['ccode'] == $ccode || $ccode =="")
                     {
-                        if ($row['ctc'] <= (int)$CTC2 || $CTC2=="")
+                        if( $row['ctc'] >= (int)$CTC || $CTC =="")
                         {
-                            $a= $a+1;
-                            printf("%s ,%s , %s , %s , %s", $row["rollno"], $row['name'], $row['cname'], $row['ctc'], $row['psem']);
-			                echo "<br>";
+                            if ($row['ctc'] <= (int)$CTC2 || $CTC2=="")
+                            {
+                                $a= $a+1;
+                                printf("%s ,%s , %s , %s , %s", $row["rollno"], $row['name'], $row['cname'], $row['ctc'], $row['psem']);
+                                echo "<br>";
+                            }
                         }
                     }
                 }
             }
+            echo "<br>$a records found";
         }
-        echo "<br>$a records found";
-	}
+    }
+
 }
 
 ?>

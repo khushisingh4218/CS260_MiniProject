@@ -11,7 +11,7 @@
 session_start();
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass="";
+$dbpass="mysql_pass_23";
 $dbname = "tpc";
 
 // Create connection
