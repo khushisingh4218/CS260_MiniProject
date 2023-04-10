@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         echo "<p>Showing results for the given filters... </p>";
 
         while ($row = $result -> fetch_assoc()){
-            if ($ccode== $row['ccode'] || $ccode== "")
+            if ($row['psem'] ==(int)$psem || $psem== "")
             {
-                if( $row['ctc'] >= (int)$CTC || $CTC =="")
+                if( $row['ccode'] == $ccode || $ccode =="")
                 {
                     if( $row['ctc'] >= (int)$CTC || $CTC =="")
                     {
