@@ -11,11 +11,13 @@
 session_start();
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass="";
+$dbpass="mysql_pass_23";
 $dbname = "tpc";
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
+$ent = $_SESSION["entity"];
+//echo $ent;
+$_SESSION["entity"] = $ent;
 ?> 
 
 
@@ -28,6 +30,8 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
     <input type = "submit" value = "Alumni page" name = "gotoalumni">
     <input type = "submit" value = "Company details" name = "gotocompany">
     <input type = "submit" value = "Student eligibility" name = "gotoeligibility">
+    <input type = "submit" value = "Student Details" name = "gotostudentdet">
+
 </form>
 <br>
 
@@ -35,16 +39,19 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 <?php
 if(isset($_POST["gotostudent"])){
+    header("Location: http://localhost/CS260_MiniProject/placements.php");
+}
+if(isset($_POST["gotostudentdet"])){
     header("Location: http://localhost/CS260_MiniProject/student.php");
 }
 if(isset($_POST["gotocompany"])){
-    header("Location: http://localhost/CS260_MiniProject/companies.php");
+    header("Location: http://localhost/CS260_MiniProject/company.php");
 }
 if(isset($_POST["gotoalumni"])){
     header("Location: http://localhost/CS260_MiniProject/alumni.php");
 }
 if(isset($_POST["gotoeligibility"])){
-    header("Location: http://localhost/CS260_MiniProject/eligibility.php");
+    header("Location: http://localhost/CS260_MiniProject/eligible.php");
 }
 ?>
 

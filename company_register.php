@@ -45,20 +45,29 @@
 </body>
 </html>
 <?php
-include 'server.php';
-$ccode=$_POST['ccode'];
-$cname=$_POST['cname'];
-$min_sem=$_POST['min_sem'];
-$min_cpi=$_POST['min_cpi'];
-$package=$_POST['package'];
-$mode=$_POST['mode'];
-$yor=$_POST['yor'];
+session_start();
+$ent = $_SESSION["entity"];
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass="mysql_pass_23";
+$dbname = "tpc";
+
+// Create connection
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-   
-}
-$sql ="insert into companies values ('$ccode','$cname','$min_sem','$min_cpi','$package','$mode','$yor')";
+	$ccode=$_POST['ccode'];
+	$cname=$_POST['cname'];
+	$min_sem=$_POST['min_sem'];
+	$min_cpi=$_POST['min_cpi'];
+	$package=$_POST['package'];
+	$mode=$_POST['mode'];
+	$yor=$_POST['yor'];
+	$sql ="insert into companies values ('$ccode','$cname','$min_sem','$min_cpi','$package','$mode','$yor')";
 $result=$conn->query($sql);
+}
+
 
 
 // Close database connection

@@ -9,9 +9,10 @@
 
 <?php
 session_start();
+$ent = $_SESSION["entity"];
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass="";
+$dbpass="mysql_pass_23";
 $dbname = "tpc";
 
 // Create connection
@@ -98,7 +99,15 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
   <br>
 
   <input type="submit" value = "Search" name = "alumni">
+
+  <?php
+  if($ent =="tpcm" || $ent=="alum"){
+  ?>
   <input type = "submit" value = "Add Alumni" name = "addalum">
+
+  <?php
+  }
+  ?>
 </form>
 
 

@@ -11,7 +11,7 @@
 session_start();
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass="";
+$dbpass="mysql_pass_23";
 $dbname = "tpc";
 
 // Create connection
@@ -31,26 +31,39 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 <br>
 <!-- <h3> If tpc member, login via passcode</h3> -->
 <form method = "post">
-    <input type = "text" value = "Passcode" name = "tpcpass">
-    <input type = "submit" value = "Login" name = "tpclogin">
+<input type = "text" value = "User ID" name = "userid">
+    <input type = "text" value = "Passcode" name = "userpass">
+    <label for = "entity">You are: </label>
+  <select  name="entity">
+  <option value="comp">Company</option>
+    <option value="stud">Student</option>
+    <option value="tpcm">TPC Official</option>
+    <option value="alum">Alumnus</option>
+</select>
+
+    <input type = "submit" value = "Login" name = "userlogin">
 </form>
 <br>
-<!-- <h3> If an alumni of the institute, enter details</h3>
-<form method = "post">
-    <label for  ="alroll" >Roll no: </label>
-    <input type = "text" value = "Roll No" name = "alroll">
-    <br>
-    <label for  ="alpass" >Password:  </label>
-    <input type = "text" value = "Password" name = "alpass">
-    <br>
-    <input type = "submit" value = "Login" name = "allogin">
-</form> -->
+
 
 
 <?php
-if(isset($_POST["tpclogin"])){
-    if($_POST["tpcpass"]=="tpc"){
-        header("Location: http://localhost/CS260_MiniProject/tpchome.php");
+if(isset($_POST["userlogin"])){
+    $id = $_POST["userid"];
+    $passw = $_POST["userpass"];
+    $entity = $_POST["entity"];
+    $sql = "select * from login where id = '$id'";
+    $result = $conn->query($sql);
+    while($row = $result->fetch_assoc()){
+        if($row["id"]==$id){
+            if($row["passw"]==$passw && $row["entity"]==$entity){
+                $_SESSION["entity"] = $entity;
+                header("Location: http://localhost/CS260_MiniProject/tpchome.php");
+            }else{
+                echo "Invalid login";
+            }
+        }
+        
     }
 
 }

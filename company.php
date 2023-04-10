@@ -8,7 +8,15 @@
 
 
 <?php
-include 'server.php';
+session_start();
+$ent = $_SESSION["entity"];
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass="mysql_pass_23";
+$dbname = "tpc";
+
+// Create connection
+$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 ?>
 
 <h2>Companies</h2>
@@ -64,6 +72,15 @@ include 'server.php';
   <br><br>
 
   <input type="submit" value = "Search" name = "alumni">
+  <br>
+  <?php
+  
+  if($ent=="tpcm" || $ent =="comp"){
+  ?>
+  <input type = "submit" name = "compadd" value = "Add new Company">
+  <?php
+  }
+  ?>
 </form>
 
 
@@ -118,6 +135,11 @@ while($row = $result->fetch_assoc()){
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+}
+
+if(isset($_POST["compadd"])){
+  $_SESSION["entity"] = $ent;
+  header("Location: http://localhost/CS260_MiniProject/company_register.php");
 }
 
 ?>

@@ -23,15 +23,21 @@
 
 <input type="submit" name="submit" value="submit">
 <br>
-
+<?php
+session_start();
+$ent = $_SESSION["entity"];
+if($ent=="tpcm"){
+?>
 <input type = "submit" name = "pladd" value = "Add new placements">
-
+<?php
+}
+?>
 </form>
 </body>
 </html>
 
 <?php
-session_start();
+
 $db = mysqli_connect("localhost", "root", "mysql_pass_23", "tpc");
 if ($_SERVER['REQUEST_METHOD'] == "POST")
 

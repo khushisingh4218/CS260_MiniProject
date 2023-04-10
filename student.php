@@ -32,7 +32,8 @@
 
 <?php
 session_start();
-$db = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
+$ent = $_SESSION["entity"];
+$db = mysqli_connect("localhost", "root", "mysql_pass_23", "tpc");
 if ($_SERVER['REQUEST_METHOD'] == "POST") 
 {
     $placed= $_POST['placed'];
