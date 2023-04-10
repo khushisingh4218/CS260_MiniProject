@@ -40,11 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     $sql = "SELECT A.*, B.name, C.cname FROM placements A NATURAL JOIN student_details B NATURAL JOIN companies C";
 	$result = mysqli_query($db, $sql);
 	$count = mysqli_num_rows($result);
+    $a=0;
 
 	if ($count < 1) {
 		echo "<p>No results found</p>";
 	} else {
-        echo "<p>Showing results for the given filters...</p>";
+        echo "<p>Showing results for the given filters... </p>";
 
         while ($row = $result -> fetch_assoc()){
             if ($ccode== $row['ccode'] || $ccode== "")
@@ -55,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                     {
                         if ($row['psem'] == (int)$psem || $psem =="")
                         {
+                            $a= $a+1;
                             printf("%s ,%s , %s , %s , %s", $row["rollno"], $row['name'], $row['cname'], $row['ctc'], $row['psem']);
 			                echo "<br>";
                         }
@@ -62,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
                 }
             }
         }
+        echo "<br>$a records found";
 	}
 }
 
