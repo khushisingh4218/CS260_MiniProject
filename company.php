@@ -1,32 +1,28 @@
 <html>
 <head>
-
-
+<link rel="stylesheet" href="company.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 <body>
 
 
 <?php
-session_start();
-$ent = $_SESSION["entity"];
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass="mysql_pass_23";
-$dbname = "tpc";
-
-// Create connection
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+include 'server.php';
 ?>
+<div class="head">
+<h2>COMPANIES</h2>
+</div>
 
-<h2>Companies</h2>
-
+<div class ="subhead">
 <p>Apply filter to your search:</p>
-
-<form method ="post" >
-
-  <label for = "ccode">Company name</label>
-  <select  name="ccode">
+</div>
+<div class="filter">
+<form class="row gy-2 gx-3 align-items-center" method ="post" >
+   
+<div class="col-auto">
+  <label for = "ccode" for="autoSizingInput">Company name</label>
+  <select  name="ccode" class="form-select" id="autoSizingInput">
   
     <option value="sel">--SELECT--</option>
     <?php
@@ -43,45 +39,52 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
     ?>
   </select>
     <br><br>
-    
+  </div>
+  <div class="col-auto">
   <label for = "cpi">Enter cpi range: </label>
-  <input type = "number" name = "min_cpi" value = 0> to
-  <input type = "number" name = "max_cpi" value = 10>
+  <input type = "number" class="form-control" name = "min_cpi" value = 0> 
+  <input type = "number" class="form-control" name = "max_cpi" value = 10>
   <br><br>
-
+  </div>
+  <div class="col-auto">
   <label for = "sem">Enter semester range: </label>
-  <input type = "number" name = "min_sem" value = 1> to
-  <input type = "number" name = "max_sem" value = 8>
+  <input type = "number" class="form-control" name = "min_sem" value = 1> 
+  <input type = "number" class="form-control" name = "max_sem" value = 8>
   <br><br>
+  </div>
+  <div class="col-auto">
   <label for = "package">Enter package range: </label>
-  <input type = "number" name = "min_pkg" value = 0> to
-  <input type = "number" name = "max_pkg" value = 10000000>
+  <input type = "number" class="form-control" name = "min_pkg" value = 0> 
+  <input type = "number" class="form-control" name = "max_pkg" value = 10000000>
   <br><br>
-
+  </div>
+  
+  <div class="col-auto">
+    <label for = "yor">Year of recruitment: </label>
+  <input type = "number" class="form-control" name = "min_yor" value=1950> 
+  <input type = "number" class="form-control" name = "max_yor" value=2050>
+  <br><br>
+  </div>
+  <div class="col-auto">
 
   <label for = "mode">Mode of recruitment:</label>
-  <select  name="mode">
+  <select  name="mode" class="form-select">
   <option value="sel">--SELECT--</option>
     <option value="offline">Offline</option>
     <option value="online">Online</option>
   </select>
   <br><br>
-    <label for = "yor">Year of recruitment: </label>
-  <input type = "number" name = "min_yor" > to
-  <input type = "number" name = "max_yor">
-  <br><br>
-
-  <input type="submit" value = "Search" name = "alumni">
-  <br>
-  <?php
-  
-  if($ent=="tpcm" || $ent =="comp"){
-  ?>
-  <input type = "submit" name = "compadd" value = "Add new Company">
-  <?php
-  }
-  ?>
+  </div>
+  <div class="col-auto">
+  <input type="submit"  class="btn btn-info" value = "Search" name = "alumni">
+  </div>
+ 
 </form>
+  </div>
+<div class="newcontainer">
+Want to add a new company? <a href="company_register.php">Click here</a><br><br>
+</div>
+
 
 
 <?php
@@ -103,24 +106,79 @@ if(isset($_POST['alumni'])){
 
     //echo $rollno." ".$ccode;
     
-
+    $count=0;
     $sql = "select * from companies";
     $result = $conn->query($sql);
     //echo $result;
 //     $result=mysqli_query($conn, $sql);
 while($row = $result->fetch_assoc()){
     //echo "Roll no ".$row["rollno"];
-    if($ccode=="sel" || $row["ccode"]==$ccode){
+    if($ccode=="sel" || $row["cname"]==$ccode){
         
         if($row["package"]>=$min_pkg  && $row["package"]<=$max_pkg){
                 
             if($row["min_sem"]>=$min_sem  && $row["min_sem"]<=$max_sem){
                 if($row["min_cpi"]>=$min_cpi  && $row["min_cpi"]<=$max_cpi){
-                   
-                    if($row["yor"]>=$min_yor  && $row["yor"]<=$max_yor){ //salary
+                 
+                    if( ($row["yor"]>=$min_yor  && $row["yor"]<=$max_yor)){ //salary
                         if($row["mode"]=="sel"||$row["mode"]>=$mode ){ //tenure
-
-                            echo $row["ccode"]."\t".$row["cname"]."\t".$row["package"]."\t".$row["min_sem"]."\t".$row["min_cpi"]."\t".$row["mode"]."\t".$row["yor"];
+                          
+                            $count=$count+1;
+                            if($count==1){
+                             echo' <div class="container">
+                                <div class="row">
+                                  <div class="col">';
+                                    echo 'Company Code';
+                                  echo'</div>
+                                  <div class="col">';
+                                    echo 'Company name';
+                                  echo '</div>
+                                  <div class="col">
+                                    Minimum Semester required
+                                  </div>';
+                                  echo'<div class="col">
+                                    Minimum CPI required
+                                  </div>';
+                                  
+                                  echo '<div class="col">
+                                    Package
+                                  </div>';
+                                 echo ' <div class="col">
+                                    Mode
+                                  </div>';
+                                  echo '<div class="col">
+                                    Year of Recruitment
+                                  </div>
+                                </div>
+                              </div>';
+                              echo '<br>';
+                            }
+                            echo '<div class="container">
+                            <div class="row">
+                              <div class="col">';
+                               echo $row["ccode"];
+                              echo '</div>
+                              <div class="col">';
+                              echo $row["cname"];
+                              echo '</div>
+                              <div class="col">';
+                              echo $row["min_sem"];
+                              echo '</div>
+                              <div class="col">';
+                              echo $row["min_cpi"];
+                              echo '</div>
+                              <div class="col">';
+                              echo $row["package"];
+                              echo '</div>
+                              <div class="col">';
+                              echo $row["mode"];
+                              echo '</div>
+                              <div class="col">';
+                              echo $row["yor"];
+                              echo '</div>
+                            </div>
+                          </div>';
+                                  
                             echo "<br>";
                            
                         }
@@ -131,18 +189,18 @@ while($row = $result->fetch_assoc()){
         
     
     }
+   
 }
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 }
 
-if(isset($_POST["compadd"])){
-  $_SESSION["entity"] = $ent;
-  header("Location: http://localhost/CS260_MiniProject/company_register.php");
-}
-
 ?>
+<div class="newcontainer">
+<?php echo $count;
+echo ' record(s) found!!';?>
+</div>
 
 </body>
 
