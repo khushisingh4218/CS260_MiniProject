@@ -15,6 +15,8 @@ $dbpass="mysql_pass_23";
 $dbname = "tpc";
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+
+
 $ent = $_SESSION["entity"];
 //echo $ent;
 $_SESSION["entity"] = $ent;
@@ -66,6 +68,7 @@ if(isset($_POST["myeligible"])){
     $mypackage = 0;
     $mycpi = 0;
     $mysem = 0;
+    $interest = "";
 
     $sql = "select * from placements where rollno = '$id'";
     $result = $conn->query($sql);
@@ -83,25 +86,28 @@ if(isset($_POST["myeligible"])){
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()){
         if($row["rollno"]==$id){
-           
+           $interest = $row["interest"];
             $mycpi = (double)$row["cpi"];
             $mysem = (int)$row["semester"];
         }
     
 
-    }
+        }
 
     //echo $mypackage." ".$mycpi." ".$mysem;
-
-    
+  
     $sql = "select * from companies where package > $mypackage and min_sem <= $mysem and min_cpi <= $mycpi";
     //  and min_sem <= $mysem and min_cpi <= $mycpi
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
-        echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
+        
+            echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
         echo "<br>";
+        
+        
     }
 }
+
 ?>
 
 </body>
