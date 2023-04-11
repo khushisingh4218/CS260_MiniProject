@@ -10,10 +10,10 @@
 <form method="post" action="<?=$_SERVER['PHP_SELF']?>" method="post">
 
 <label for="placed">Placed Y/N:</label>
-<input type="text" id="placed" name="placed" required><br><br>
+<input type="text" id="placed" name="placed" ><br><br>
 
 <label for="semester">Semester number:</label>
-<input type="text" id="semester" name="semester" value="8" required><br><br>
+<input type="text" id="semester" name="semester" value="0" required><br><br>
 
 <label for="CPI">CPI Range:</label>
 <input type="text" id="CPI" name="CPI" value="0" required>
@@ -42,19 +42,37 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     $CPI2=(int)$_POST['CPI2'];
     $batch_year=(int)$_POST['batch_year'];
   
-    $sql = "SELECT * FROM student_details where placed ='$placed' and semester ='$semester' and cpi>='$CPI' and cpi<='$CPI2' and batch_year='$batch_year'";
+    $sql = "SELECT * FROM student_details";
 	$result = mysqli_query($db, $sql);
 	$count = mysqli_num_rows($result);
 
 	if ($count < 1) {
 		echo "<p>No results found</p>";
 	} else {
+
+        
         echo "<p>Showing results for the given filters...</p>";
 
         while ($row = $result -> fetch_assoc()){
 
-            printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
+            if($row["placed"]==$placed || $placed==""){
+                if($row["semester"]==$semester || $semester==0){
+                    if($row["cpi"]>=$CPI){
+                        if($row["cpi"]<=$CPI2){
+                            if($row["batch_year"]==$batch_year){
+                                printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
 			echo "<br>";
+                            }
+                
+                        }
+                    
+                
+                    }
+                
+                }
+            }
+
+            
 
         
         }
