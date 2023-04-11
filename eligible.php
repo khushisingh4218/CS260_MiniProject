@@ -24,6 +24,7 @@
 session_start();
 $ent = $_SESSION["entity"];
 $db = mysqli_connect("localhost", "root", "mysql_pass_23", "tpc");
+$conn = new mysqli("localhost", "root", "mysql_pass_23", "tpc");
 if ($_SERVER['REQUEST_METHOD'] == "POST") 
 {
     $ccode= $_POST['ccode'];
@@ -41,6 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
     
     }
+    
+    $t = "select * from skills where ccode = '$ccode'";
+    $res = $conn->query($t);
+    $r = $res->fetch_assoc();
+    $a = array($r["ml"],$r["cp"],$r["iot"],$r["mng"],$r["ncc"],$r["cybsec"],$r["dsa"],$r["network"],$r["db"],$r["software"]);
+    $b = array("ml","cp","iot","mng","ncc","cybsec","dsa","network","db","software");
+
+
+    
 
     $sql = "SELECT A.*, B.ccode, B.ctc FROM student_details A LEFT JOIN placements B ON A.rollno=B.rollno where cpi >= '$min_cpi' and semester >= '$min_sem'";
 	$result = mysqli_query($db, $sql);
@@ -53,8 +63,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
         while ($row = $result -> fetch_assoc()){
 
-           
-            if ($row['placed']=="Y" and $row['ctc']<= $package)
+            $x = 0;
+            $present = false;
+            foreach($b as $val){
+
+                if($val== $row["interest"]){
+                    if($a[$x]==true){
+                        $present = true;
+                    }
+                }
+                $x++;
+            }
+
+            
+            if($present){
+
+                if ($row['placed']=="Y" and $row['ctc']<= $package)
             {
                 printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
 			echo "<br>";
@@ -68,6 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 			echo "<br>";
             }
             }
+
+            }
+            
+            
+            
+
+           
+            
         }
 
 	}
