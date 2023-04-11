@@ -1,0 +1,31 @@
+.head{
+    margin-top: 1vw;
+    align-content: center;
+    margin-left: 40vw;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.subhead{
+    margin-left: 1vw;
+}
+.filter{
+    color: aliceblue;
+    margin-top: 1vw;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    background-color: rgb(37, 24, 3);
+}
+.container{
+    background-color: blanchedalmond;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.result{
+    margin-left: 2vw;
+    margin-top: 1vw;
+}
+.newcontainer{
+   margin-left: 5vw;
+   margin-top: 1vw;
+}

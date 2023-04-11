@@ -1,65 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="student.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Student</title>
 </head>
+
 <body>
-<form method="post" action="<?=$_SERVER['PHP_SELF']?>" method="post">
+    <div class="head">
+        <h2>STUDENTS</h2>
+    </div>
+    <div class="subhead">
+        <p>Apply filter to your search:</p>
+    </div>
 
-<label for="placed">Placed Y/N:</label>
-<input type="text" id="placed" name="placed" required><br><br>
+    <div class="filter">
+        <form class="row gy-2 gx-3 align-items-center" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 
-<label for="semester">Semester number:</label>
-<input type="text" id="semester" name="semester" value="8" required><br><br>
+            <div class="col-auto">
+                <label for="placed">Placed?</label>
+                <select class="form-select" id="placed" name="placed">
+                    <option value="sel">--select--</option>
+                    <option value="Y">Yes</option>
+                    <option value="N">No</option>
+                </select>
+            </div>
 
-<label for="CPI">CPI Range:</label>
-<input type="text" id="CPI" name="CPI" value="0" required>
-<label for="CPI2">to:</label>
-<input type="text" id="CPI2" name="CPI2" value ="10" required><br><br>
+            <div class="col-auto">
+                <label for="semester">Semester number:</label>
+                <input type="number" step=1 class="form-control" id="semester" name="semester" value="8">
+            </div>
 
-<label for="batch_year">Batch year:</label>
-<input type="text" id="batch_year" name="batch_year" value="2025" required><br><br>
+            <div class="col-auto">
+                <label for="batch_year">Batch year:</label>
+                <input type="text" class="form-control" id="batch_year" name="batch_year" value="2025">
+            </div>
 
 
-<input type="submit" name="submit" value="submit">
 
-</form>
+            <div class="col-auto">
+                <label for="CPI">CPI Range:</label>
+                <input type="number" step=0.01 class="form-control" id="CPI" name="CPI" value="0">
+                <label for="CPI2"></label>
+                <input type="number" step=0.01 class="form-control" id="CPI2" name="CPI2" value="10">
+            </div>
+
+            <div class="col-auto">
+                <input type="submit" class="btn btn-info" name="submit" value="Search">
+            </div>
+
+        </form>
+    </div>
 </body>
+
 </html>
 
 <?php
 session_start();
 $ent = $_SESSION["entity"];
-$db = mysqli_connect("localhost", "root", "mysql_pass_23", "tpc");
-if ($_SERVER['REQUEST_METHOD'] == "POST") 
-{
-    $placed= $_POST['placed'];
-    $semester=(int)$_POST['semester'];
-    $CPI=(int)$_POST['CPI'];
-    $CPI2=(int)$_POST['CPI2'];
-    $batch_year=(int)$_POST['batch_year'];
-  
+include 'server.php';
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $placed = $_POST['placed'];
+    $semester = (int) $_POST['semester'];
+    $CPI = (int) $_POST['CPI'];
+    $CPI2 = (int) $_POST['CPI2'];
+    $batch_year = (int) $_POST['batch_year'];
+
     $sql = "SELECT * FROM student_details where placed ='$placed' and semester ='$semester' and cpi>='$CPI' and cpi<='$CPI2' and batch_year='$batch_year'";
-	$result = mysqli_query($db, $sql);
-	$count = mysqli_num_rows($result);
+    $result = mysqli_query($conn, $sql);
+    $count = 0;
 
-	if ($count < 1) {
-		echo "<p>No results found</p>";
-	} else {
-        echo "<p>Showing results for the given filters...</p>";
 
-        while ($row = $result -> fetch_assoc()){
+    echo '<div class="result">';
+    echo "<p>Showing results for the given filters...</p>";
+    echo '</div>';
 
-            printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
-			echo "<br>";
+    while ($row = $result->fetch_assoc()) {
 
-        
+        if ($placed == "sel" || $row['placed'] == $placed) {
+            if ($row['semester'] == $semester || $semester == 0) {
+                if ($batch_year == 0 || $row['batch_year'] == $batch_year) {
+                    if ($row['cpi'] >= $CPI && $row['cpi'] <= $CPI2) {
+                        $count = $count + 1;
+                        if ($count == 1) {
+                            echo ' <div class="container">
+                                   <div class="row">
+                                     <div class="col">';
+                            echo 'Roll No';
+                            echo '</div>
+                                     <div class="col">';
+                            echo 'Name';
+                            echo '</div>
+                                     <div class="col">
+                                       Semester
+                                     </div>';
+                            echo '<div class="col">
+                                       CPI
+                                     </div>';
+
+                            echo '<div class="col">
+                                       Grade 10th marks
+                                     </div>';
+                            echo ' <div class="col">
+                                      Grade 12th marks
+                                     </div>';
+                            echo '<div class="col">
+                                       Branch
+                                     </div>';
+                            echo '<div class="col">
+                                        Age
+                                    </div>'
+                            ;
+                            echo '<div class="col">
+                                Interest
+                                
+                            </div>';
+                            echo '<div class="col">
+                            Batch Year
+                        
+                    </div>';
+                            echo '<div class="col">
+                                    Placed status
+                                    </div>
+                                </div>
+                                </div>';
+
+                            echo '<br>';
+                        }
+                        echo '<div class="container">
+                            <div class="row">
+                            <div class="col">';
+                        echo $row['rollno'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['name'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['semester'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['cpi'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['grade10'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['grade12'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['branch'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['age'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['interest'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['batch_year'];
+                        echo '</div>';
+                        echo '
+                            <div class="col">';
+                        echo $row['placed'];
+                        echo '</div>';
+                        echo '</div></div>';
+
+                    }
+
+                }
+            }
+            // printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
+            // echo "<br>";
+
+
         }
 
-	}
+    }
+
+    echo '<div class="newcontainer">';
+    echo $count;
+    echo ' record(s) found!!';
+    echo '</div>';
 }
+
+
 
 ?>
