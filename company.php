@@ -75,7 +75,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
   <br>
   <?php
   
-  if($ent=="tpcm" || $ent =="comp"){
+  if($ent =="comp"){
   ?>
   <input type = "submit" name = "compadd" value = "Add new Company">
   <?php
