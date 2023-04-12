@@ -14,6 +14,38 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">       
+               
+          <div class="container-fluid">
+              <img src="hello.jpg" alt="" width="30" height="24">
+            <a class="navbar-brand" href="newpage.html">TPC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="student.php">Students</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="company.php">Companies</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="eligible.php">Eligibility</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="placements.php">Placements</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="alumni.php">Alumni</a>
+                </li>
+               
+              </ul>
+              
+            </div>
+          </div>
+        </nav>
     <div class="head">
         <h2>STUDENTS</h2>
     </div>
@@ -35,7 +67,7 @@
 
             <div class="col-auto">
                 <label for="semester">Semester number:</label>
-                <input type="number" step=1 class="form-control" id="semester" name="semester" value="8">
+                <input type="number" step=1 class="form-control" id="semester" name="semester" value="0">
             </div>
 
             <div class="col-auto">

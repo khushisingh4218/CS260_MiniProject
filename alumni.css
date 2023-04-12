@@ -1,0 +1,31 @@
+.container{
+    border: 2mm;
+    border-color: blue;
+    background-color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+}
+.newcontainer{
+   margin-left: 5vw; 
+}
+
+.head{
+    margin-top: 1vw;
+    align-content: center;
+    margin-left: 40vw;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.subhead{
+    margin-left: 1vw;
+}
+.filter{
+    color: aliceblue;
+    margin-top: 1vw;
+    padding-left: 2vw;
+    padding-top: 1vw;
+    background-color: rgb(37, 24, 3);
+}
+.col{
+    align-content: center;
+    padding: 0.5vw;
+}

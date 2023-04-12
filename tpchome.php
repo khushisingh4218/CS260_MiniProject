@@ -9,16 +9,7 @@
 
 <?php
 session_start();
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass="mysql_pass_23";
-$dbname = "tpc";
-
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-$ent = $_SESSION["entity"];
-//echo $ent;
-$_SESSION["entity"] = $ent;
-$id = $_SESSION["id"];
+include 'server.php';
 ?> 
 
 
@@ -27,19 +18,11 @@ $id = $_SESSION["id"];
 
 <form method = "post">
     
-    <input type = "submit" value = "Student Placements" name = "gotostudent"><br>
-    <input type = "submit" value = "Alumni page" name = "gotoalumni"><br>
-    <input type = "submit" value = "Company details" name = "gotocompany"><br>
-    <input type = "submit" value = "Student eligibility" name = "gotoeligibility"><br>
-    <input type = "submit" value = "Student Details" name = "gotostudentdet"><br>
-    <?php
-
-    if($ent=="stud"){
-    ?>
-    <input type = "submit" value = "Check your eligibility" name = "myeligible"><br>
-    <?php
-    }
-    ?>
+    <input type = "submit" value = "Student Placements" name = "gotostudent">
+    <input type = "submit" value = "Alumni page" name = "gotoalumni">
+    <input type = "submit" value = "Company details" name = "gotocompany">
+    <input type = "submit" value = "Student eligibility" name = "gotoeligibility">
+    <input type = "submit" value = "Student Details" name = "gotostudentdet">
 
 </form>
 <br>
@@ -61,46 +44,6 @@ if(isset($_POST["gotoalumni"])){
 }
 if(isset($_POST["gotoeligibility"])){
     header("Location: http://localhost/CS260_MiniProject/eligible.php");
-}
-if(isset($_POST["myeligible"])){
-    $mypackage = 0;
-    $mycpi = 0;
-    $mysem = 0;
-
-    $sql = "select * from placements where rollno = '$id'";
-    $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()){
-        if($row["rollno"]==$id){
-            $mypackage = (int)$row["ctc"];
-            // $mycpi = (double)$row["ctc"];
-            // $mysem = (int)$row["ctc"];
-        }
-    } 
-
-    
-
-        $sql = "select * from student_details where rollno = '$id'";
-        $result = $conn->query($sql);
-        while($row = $result->fetch_assoc()){
-        if($row["rollno"]==$id){
-           
-            $mycpi = (double)$row["cpi"];
-            $mysem = (int)$row["semester"];
-        }
-    
-
-    }
-
-    //echo $mypackage." ".$mycpi." ".$mysem;
-
-    
-    $sql = "select * from companies where package > $mypackage and min_sem <= $mysem and min_cpi <= $mycpi";
-    //  and min_sem <= $mysem and min_cpi <= $mycpi
-    $result = $conn->query($sql);
-    while($row = $result->fetch_assoc()){
-        echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
-        echo "<br>";
-    }
 }
 ?>
 
