@@ -42,6 +42,12 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 </select>
 
     <input type = "submit" value = "Login" name = "userlogin">
+    
+</form>
+
+<form method = "post">
+
+<input type = "submit" value = "Register" name = "register">
 </form>
 <br>
 
@@ -66,6 +72,10 @@ if(isset($_POST["userlogin"])){
         }
         
     }
+
+}
+if (isset($_POST["register"])){
+    header("Location: http://localhost/CS260_MiniProject/registration.php");
 
 }
 // if (isset($_POST["allogin"])){

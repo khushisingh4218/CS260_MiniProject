@@ -34,6 +34,7 @@ $id = $_SESSION["id"];
     <input type = "submit" value = "Company details" name = "gotocompany"><br>
     <input type = "submit" value = "Student eligibility" name = "gotoeligibility"><br>
     <input type = "submit" value = "Student Details" name = "gotostudentdet"><br>
+    <input type = "submit" value = "Update Details" name = "updatedetails"><br>
     <?php
 
     if($ent=="stud"){
@@ -63,6 +64,19 @@ if(isset($_POST["gotoalumni"])){
 }
 if(isset($_POST["gotoeligibility"])){
     header("Location: http://localhost/CS260_MiniProject/eligible.php");
+}
+if(isset($_POST["updatedetails"])){
+    if($ent == "alum"){
+
+        header("Location: http://localhost/CS260_MiniProject/alumupdate.php");
+    }else if($ent =="stud"){
+        header("Location: http://localhost/CS260_MiniProject/studupdate.php");
+
+    }else if($ent = "comp"){
+        header("Location: http://localhost/CS260_MiniProject/compupdate.php");
+
+    }
+    
 }
 if(isset($_POST["myeligible"])){
     $mypackage = 0;
