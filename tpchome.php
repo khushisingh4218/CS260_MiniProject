@@ -15,7 +15,7 @@ $dbpass="mysql_pass_23";
 $dbname = "tpc";
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
+$db = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 $ent = $_SESSION["entity"];
 //echo $ent;
@@ -100,9 +100,22 @@ if(isset($_POST["myeligible"])){
     //  and min_sem <= $mysem and min_cpi <= $mycpi
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
-        
-            echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
+
+            $ccode = $row["ccode"];
+            $tv= "select * from skills where ccode = '$ccode'";
+            $present = false;
+            $res = $conn->query($tv);
+            while($r = $res->fetch_assoc()){
+                if($r[$interest]==true){
+                    $present = true;
+                }
+            }
+            if($present){
+                echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
         echo "<br>";
+            }
+        
+            
         
         
     }
