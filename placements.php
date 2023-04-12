@@ -35,6 +35,9 @@
                      <li class="nav-item">
                        <a class="nav-link" href="alumni.php">Alumni</a>
                      </li>
+                     <li class="nav-item">
+                    <a class="nav-link" href="stats.html">Statistics</a>
+                  </li>
                     
                    </ul>
                    
