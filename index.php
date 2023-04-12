@@ -1,7 +1,9 @@
 <html>
 <head>
 
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -11,7 +13,7 @@
 session_start();
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass="mysql_pass_23";
+$dbpass="PASSWORD";
 $dbname = "tpc";
 
 // Create connection
@@ -27,21 +29,40 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 ?> 
 
 
-<h1> Welcome!</h1>
+
 <br>
 <!-- <h3> If tpc member, login via passcode</h3> -->
 <form method = "post">
-<input type = "text" value = "User ID" name = "userid">
-    <input type = "text" value = "Passcode" name = "userpass">
-    <label for = "entity">You are: </label>
-  <select  name="entity">
+<div class="col d-flex justify-content-center">
+<div class="card" style="width: 18rem; ">
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item"><h1> Welcome!</h1></li>
+    <li class="list-group-item border border-white"><div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">User ID</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name= "userid">
+</div></li>
+    <li class="list-group-item border border-white"><div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+  <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name= "userpass">
+</div></li>
+    <li class="list-group-item border border-white"> 
+    <div class="input-group mb-3">   <span class="input-group-text" id="inputGroup-sizing-default">You are</span>
+  <select  name="entity" class="btn btn-secondary dropdown-toggle">
   <option value="comp">Company</option>
     <option value="stud">Student</option>
     <option value="tpcm">TPC Official</option>
     <option value="alum">Alumnus</option>
-</select>
+</select></div></li>
+<div class="col d-flex justify-content-center ">
+<li class="list-group-item border border-white"><input type = "submit" class="btn btn-primary" value = "Login" name = "userlogin"></li>
+</div>
+  </ul>
+</div>
 
-    <input type = "submit" value = "Login" name = "userlogin">
+
+</div>
+
+    
 </form>
 <br>
 
