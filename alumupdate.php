@@ -24,6 +24,10 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 $rollno = $_SESSION["id"];
 
+$sql = "select * from alumnus where rollno = '$rollno'";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
 ?> 
 
 
@@ -33,22 +37,22 @@ $rollno = $_SESSION["id"];
 <form method = "post">
     
     Company code:
-    <input type = "text" value = "" name = "ccode" required>
+    <input type = "text" value = '<?php echo $row["ccode"]?>' name = "ccode" required>
     <br> 
     Position:
-    <input type = "text" value = "" name = "position" required>
+    <input type = "text" value = '<?php echo $row["position"]?>' name = "position" required>
     <br>
     Package: 
-    <input type = "number" value = 0 name = "ctc" required>
+    <input type = "number" value = <?php echo $row["ctc"]?> name = "ctc" required>
     <br>
     Area:
-    <input type = "text" value = "" name = "area" required>
+    <input type = "text" value = '<?php echo $row["area"]?>' name = "area" required>
     <br>
     Tenure: 
-    <input type = "number" value = 0 name = "tenure" required>
+    <input type = "number" value = <?php echo $row["tenure"]?> name = "tenure" required>
     <br>
     Placement year: 
-    <input type = "number" value = 0 name = "pyear" required>
+    <input type = "number" value = <?php echo $row["pyear"]?> name = "pyear" required>
     <br>
     <input type = "submit" value = "SUBMIT" name = "submit" required>
 </form>
@@ -61,7 +65,7 @@ if(isset($_POST["submit"])){
     
     $position = $_POST["position"];
     $ctc = (int)$_POST["ctc"];
-
+    //$package = (int)$_POST["package"];
     $area = $_POST["area"];
     $tenure = (int)$_POST["tenure"];
     $ccode = $_POST["ccode"];
