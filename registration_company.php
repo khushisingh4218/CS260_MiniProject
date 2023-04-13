@@ -38,6 +38,7 @@
     
 	<form method="post" class="row g-3"  action="">
     <div class="col-md-4">
+    <label for="ccode" class="form-label">Company Code:</label>
 		<input type="text" name="ccode" class="form-control" required>
     </div>
     <div class="col-md-4">
