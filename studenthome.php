@@ -8,5 +8,10 @@
 </head>
 <body>
     I'm a student
+    <form method = "post" action="studenteligible.php">
+    <input type = "submit" value = "Check your eligibility" name = "myeligible"><br>
+    </form>
+
+
 </body>
 </html>
