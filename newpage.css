@@ -1,23 +1,13 @@
-.container{
-    padding: auto;
-    margin-top: 10vh;
-    margin-left: 65vh;
-    margin-right: 25vh;
-
-    /* display: flex; */
-    
-
+.det {
+    padding: 10px;
+   margin:30px;
 }
 
-.container1{
-    padding: auto;
-    margin-top: 3vh;
-    margin-left: 15vh;
-    margin-right: 15vh;
-   
-    /* display: flex; */
+
+label,input{
+    padding:3px;
+}  
+
+.b{
+    padding:10px;
 }
-/* .body{
-    align-self: center;
-    margin-left: 50vw;
-} */

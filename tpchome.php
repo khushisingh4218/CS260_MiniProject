@@ -89,10 +89,11 @@ if(isset($_POST["myeligible"])){
     while($row = $result->fetch_assoc()){
         if($row["rollno"]==$id){
             $mypackage = (int)$row["ctc"];
-            // $mycpi = (double)$row["ctc"];
-            // $mysem = (int)$row["ctc"];
+            // $mycpi = (double)$row["cpi"];
+            // $mysem = (int)$row["semester"];
         }
     } 
+
 
     
 
@@ -108,27 +109,33 @@ if(isset($_POST["myeligible"])){
 
         }
 
-    
 
-    //echo $mypackage." ".$mycpi." ".$mysem;
   
-    $sql = "select * from companies where package > $mypackage and min_sem <= $mysem and min_cpi <= $mycpi";
-    //  and min_sem <= $mysem and min_cpi <= $mycpi
+    $sql = "select * from companies ";
+   
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
+
 
             $ccode = $row["ccode"];
             $tv= "select * from skills where ccode = '$ccode'";
             $present = false;
             $res = $conn->query($tv);
             while($r = $res->fetch_assoc()){
-                if($r[$interest]==true){
+
+                if($r[$interest]){
                     $present = true;
-                }
             }
-            if($present){
-                echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
-        echo "<br>";
+            }
+            if($present && $row["package"] > $mypackage){
+               
+                if($row["min_cpi"] <= $mycpi){
+                    if($row["min_sem"] <= $mysem){
+                    echo $row["ccode"]."   ".$row["cname"]."   ".$row["min_sem"]."   ".$row["min_cpi"]."   ".$row["package"]."   ".$row["mode"]."   ".$row["yor"];
+                echo "<br>";
+                    }
+                }
+                
             }
         
             

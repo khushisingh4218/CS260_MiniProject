@@ -78,11 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             
             if($present){
 
-                if ($row['placed']=="Y" and $row['ctc']<= $package)
+                if ($row['placed']=="Y")
             {
-                printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
-			echo "<br>";
-
+                if ($row['ctc']< $package){
+                    printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
+                    echo "<br>";
+                }
             }
             else
             {
