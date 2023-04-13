@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    put newpage.html's content here
+    Me alumnus!!
 </body>
 </html>
