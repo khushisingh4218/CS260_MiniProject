@@ -37,17 +37,14 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
     Company code:
     <input type = "text" value = "" name = "ccode">
     <br> 
-    Position:
-    <input type = "text" value = "" name = "position">
-    <br>
     Package: 
-    <input type = "text" value = "" name = "ctc">
+    <input type = "number" value = 0 name = "ctc">
     <br>
-    Area:
-    <input type = "text" value = "" name = "area">
+    Placement semester:
+    <input type = "number" value = 0 name = "psem">
     <br>
-    Tenure: 
-    <input type = "text" value = "" name = "tenure">
+    Placement year: 
+    <input type = "number" value = 2023 name = "pyear">
     <br>
     <input type = "submit" value = "SUBMIT" name = "submit">
 </form>
@@ -58,20 +55,25 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 if(isset($_POST["submit"])){
     $rollno = $_POST["rollno"];
-    $position = $_POST["position"];
+  
     $ctc = (int)$_POST["ctc"];
 
-    $area = $_POST["area"];
-    $tenure = (int)$_POST["tenure"];
+    $psem = (int)$_POST["psem"];
+    $pyear = (int)$_POST["pyear"];
     $ccode = $_POST["ccode"];
 
-    $sql = "insert into alumnus values('$rollno', '$ccode','$ctc', '$area','$position', '$tenure')";
+    $sql = "insert into placements values('$rollno', '$ccode',$ctc, $psem,$pyear)";
    
     if( $conn->query($sql)){
         echo "Values inerted successfully";
     }else{
         echo "Unsuccessful attempt";
     }
+
+    $sql = "update student_details set placed = 'Y' where rollno = '$rollno'";
+   if( $conn->query($sql)){
+    echo "<br>Student placed";
+   }
 }
 ?>
 

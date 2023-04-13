@@ -108,6 +108,8 @@ if(isset($_POST["myeligible"])){
 
         }
 
+    
+
     //echo $mypackage." ".$mycpi." ".$mysem;
   
     $sql = "select * from companies where package > $mypackage and min_sem <= $mysem and min_cpi <= $mycpi";
