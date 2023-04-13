@@ -110,7 +110,7 @@
                     <div class="card-body">
                       
                       <p class="card-text"></p>
-                      <a href="stats.html" class="btn btn-dark">Statistics</a>
+                      <a href="company_stats.php" class="btn btn-dark">Statistics</a>
                     </div>
                   </div>
               </div>
