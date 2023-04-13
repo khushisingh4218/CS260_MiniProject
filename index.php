@@ -1,17 +1,41 @@
 <html>
 <head>
-<!-- <link rel="stylesheet" href="index.css"> -->
+<link rel="stylesheet" href="index.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">       
+               
+               <div class="container-fluid">
+                   <img src="hello.jpg" alt="" width="30" height="24">
+                 <a class="navbar-brand" href="index.php">Login</a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
+                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+     
+                     <li class="nav-item">
+                       <a class="nav-link" href="registration_student.php">Student Registration</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="registration_company.php">Company Registration</a>
+                     </li>
+                     
+                    
+                   </ul>
+                   
+                 </div>
+               </div>
+             </nav>
 <div class="home">
 
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
+include 'server.php';
 //$email = $_SESSION["user_email_delete"];
 // if (mysqli_connect_errno()) {
 //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -67,9 +91,7 @@ $conn = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
 
 
 </div>
-<div class="newcontainer" style="margin-left:1vw">
-Don't have an account? <a href="registration.php">Register</a><br><br>
-</div>
+
   </ul>
 </div>
 
@@ -78,6 +100,9 @@ Don't have an account? <a href="registration.php">Register</a><br><br>
 
     
 </form>
+<div class="newcontainer" style="margin-left:1vw">
+Don't have an account? <a href="registration.php">Register</a><br><br>
+</div>
 </div>
 <br>
 
@@ -96,16 +121,16 @@ if(isset($_POST["userlogin"])){
                 $_SESSION["entity"] = $entity;
                 $_SESSION["id"] = $id;
                 if($entity == "tpcm"){
-                header("Location: http://localhost:3000/tpchome.php");
+                header("Location: http://localhost/CS260_MiniProject/tpchome.php");
                 }
                 if($entity == "stud"){
-                  header("Location: http://localhost:3000/studenthome.php");
+                  header("Location: http://localhost/CS260_MiniProject/studenthome.php");
                   }
                   if($entity == "comp"){
-                    header("Location: http://localhost:3000/companyhome.php");
+                    header("Location: http://localhost/CS260_MiniProject/companyhome.php");
                     }
                     if($entity == "alum"){
-                      header("Location: http://localhost:3000/alumnihome.php");
+                      header("Location: http://localhost/CS260_MiniProject/alumnihome.php");
                       }
                
             }else{

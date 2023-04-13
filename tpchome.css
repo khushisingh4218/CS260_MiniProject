@@ -1,0 +1,24 @@
+.container{
+    padding: auto;
+    margin-top: 10vh;
+    margin-left: 65vh;
+    margin-right: 25vh;
+
+    /* display: flex; */
+    
+
+}
+
+.container1{
+    
+    padding: auto;
+    margin-top: 3vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+   
+    /* display: flex; */
+}
+/* .body{
+    align-self: center;
+    margin-left: 50vw;
+} */
