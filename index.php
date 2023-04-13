@@ -66,9 +66,7 @@ include 'server.php';
 
 
 </div>
-<div class="newcontainer">
-Don't have an account? <a href="registration.php">Register</a><br><br>
-</div>
+
   </ul>
 </div>
 
@@ -77,6 +75,9 @@ Don't have an account? <a href="registration.php">Register</a><br><br>
 
     
 </form>
+<div class="newcontainer">
+Don't have an account? <a href="registration.php">Register</a><br><br>
+</div>
 </div>
 <br>
 
