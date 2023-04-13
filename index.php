@@ -1,6 +1,6 @@
 <html>
 <head>
-<link rel="stylesheet" href="index.css">
+<!-- <link rel="stylesheet" href="index.css"> -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
@@ -10,7 +10,8 @@
 <div class="home">
 
 <?php
-include 'server.php';
+session_start();
+$conn = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
 //$email = $_SESSION["user_email_delete"];
 // if (mysqli_connect_errno()) {
 //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -32,7 +33,7 @@ include 'server.php';
   <ul class="list-group list-group-flush">
  <div class="headcontainer>   
   <li class="list-group-item">
-  <div class="headwelcome" >
+  <div class="headwelcome col d-flex justify-content-center" >
     <h1> IIT PATNA</h1>
 </div>
 </li>
@@ -61,12 +62,14 @@ include 'server.php';
     <option value="alum">Alumnus</option>
 </select></div></li>
 
-<div class="col d-flex justify-content-center ">
-<li class="list-group-item border styleborder-white" style="margin-top 15vw"><input type = "submit" class="btn btn-primary" value = "Login" name = "userlogin"></li>
+<div class="col d-flex justify-content-center border border-white">
+<li class="list-group-item border border-white" style="margin-top 15vw"><input type = "submit" class="btn btn-primary" value = "Login" name = "userlogin"></li>
 
 
 </div>
-
+<div class="newcontainer" style="margin-left:1vw">
+Don't have an account? <a href="registration.php">Register</a><br><br>
+</div>
   </ul>
 </div>
 
@@ -75,9 +78,6 @@ include 'server.php';
 
     
 </form>
-<div class="newcontainer">
-Don't have an account? <a href="registration.php">Register</a><br><br>
-</div>
 </div>
 <br>
 
@@ -95,7 +95,19 @@ if(isset($_POST["userlogin"])){
             if($row["passw"]==$passw && $row["entity"]==$entity){
                 $_SESSION["entity"] = $entity;
                 $_SESSION["id"] = $id;
-                header("Location: http://localhost/CS260_MiniProject/tpchome.php");
+                if($entity == "tpcm"){
+                header("Location: http://localhost:3000/tpchome.php");
+                }
+                if($entity == "stud"){
+                  header("Location: http://localhost:3000/studenthome.php");
+                  }
+                  if($entity == "comp"){
+                    header("Location: http://localhost:3000/companyhome.php");
+                    }
+                    if($entity == "alum"){
+                      header("Location: http://localhost:3000/alumnihome.php");
+                      }
+               
             }else{
                 echo "Invalid login";
             }
