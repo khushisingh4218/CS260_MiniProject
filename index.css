@@ -1,0 +1,45 @@
+.loginbox{
+    margin-top: 10vw;
+    
+    
+}
+.headwelcome{
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left:0vw;
+    margin-right: 0vw;
+    padding-left: 5vw;
+    height: 4vw;
+}
+
+#id1{
+    
+   margin-top: 2vw;
+   font-family: 'Times New Roman', Times, serif;
+}
+
+#id2{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#id3{
+    
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.card{
+    background-color: aqua;
+}
+
+.btn{
+    border-radius: 5vw;
+    width: 10vw;
+}
+.home{
+    background-color:darkgoldenrod;
+    height: 100vh;
+}
+.newcontainer{
+    margin-top: 1vh;
+}
