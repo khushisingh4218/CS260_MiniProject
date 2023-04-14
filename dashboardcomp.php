@@ -16,8 +16,8 @@
     $dbname = "tpc";
 
     $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-    //$ccode = $_SESSION["id"];
-    $ccode = "GGL";
+    $ccode = $_SESSION["id"];
+    //$ccode = "GGL";
     //$db = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 
