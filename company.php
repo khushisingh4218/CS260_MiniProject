@@ -141,7 +141,7 @@ if(isset($_POST['alumni'])){
     //echo $rollno." ".$ccode;
     
     $count=0;
-    $sql = "select * from companies";
+    $sql = "select * from companies order by package desc";
     $result = $conn->query($sql);
     //echo $result;
 //     $result=mysqli_query($conn, $sql);
