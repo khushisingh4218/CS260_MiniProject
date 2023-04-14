@@ -166,6 +166,7 @@
 </body>
 </html>
 <?php
+session_start();
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass="mysql_pass_23";
