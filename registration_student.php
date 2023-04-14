@@ -120,6 +120,8 @@
 </html>
 <?php
 include 'server.php';
+
+if(isset($_POST["submit"])){
 $rollno=$_POST['rollno'];
 $name = $_POST["name"];
 $passw = $_POST["userpass"];
@@ -154,7 +156,7 @@ if($conf ==$passw){
     }
 
 
-
+  }
 // Close database connection
 mysqli_close($conn);
 ?>
