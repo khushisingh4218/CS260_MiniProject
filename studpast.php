@@ -71,7 +71,7 @@ include 'server.php';
                
           <div class="container-fluid">
               <img src="hello.jpg" alt="" width="30" height="24">
-            <a class="navbar-brand" href="newpage.html">TPC Student</a>
+            <a class="navbar-brand" href="studenthome.html">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -103,7 +103,7 @@ include 'server.php';
               
             </div>
           </div>
-        </nav>
+        </nav>      
 
 <div class="container">
     <div class="row">

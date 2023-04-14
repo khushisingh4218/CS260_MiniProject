@@ -123,10 +123,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 $_SESSION["entity"] = $entity;
                 $_SESSION["id"] = $id;
                 if($entity == "tpcm"){
-                header("Location: http://localhost/CS260_MiniProject/tpchome.html");
+                header("Location: http://localhost/CS260_MiniProject/tpchome.php");
                 }
                 if($entity == "stud"){
-                  header("Location: http://localhost/CS260_MiniProject/studenthome.php");
+                  header("Location: http://localhost/CS260_MiniProject/studenthome.html");
                   }
                   if($entity == "comp"){
                     header("Location: http://localhost/CS260_MiniProject/companyhome.php");

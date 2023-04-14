@@ -5,17 +5,18 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">       
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+          
+                 
                
           <div class="container-fluid">
               <img src="hello.jpg" alt="" width="30" height="24">
-            <a class="navbar-brand" href="newpage.html">TPC</a>
+            <a class="navbar-brand" href="tpchome.php">TPC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                   <a class="nav-link" href="student.php">Students</a>
                 </li>
@@ -32,15 +33,17 @@
                   <a class="nav-link" href="alumni.php">Alumni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stats.html">Statistics</a>
-                  </li>
+                  <a class="nav-link" href="stats.html">Statistics</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="queries.php">SQL Queries</a>
+                </li>
                
               </ul>
               
             </div>
           </div>
         </nav>
-
 <?php
 include 'server.php';
 ?>
@@ -134,14 +137,14 @@ if(isset($_POST['alumni'])){
     $min_sem = $_POST['min_sem'];
     $max_yor = $_POST['max_yor'];
     $min_yor = $_POST['min_yor'];
-    $mode = $_POST['mode'];
+    $mode = $POST['mode'];
     $ccode = $_POST['ccode'];
     
 
     //echo $rollno." ".$ccode;
     
     $count=0;
-    $sql = "select * from companies order by package desc";
+    $sql = "select * from companies";
     $result = $conn->query($sql);
     //echo $result;
 //     $result=mysqli_query($conn, $sql);

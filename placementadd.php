@@ -9,19 +9,7 @@
 
 <?php
 session_start();
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass="mysql_pass_23";
-$dbname = "tpc";
-
-// Create connection
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-//$email = $_SESSION["user_email_delete"];
-// if (mysqli_connect_errno()) {
-//     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-//     exit();
-//   } 
-
+include 'server.php';
 
 
 ?> 

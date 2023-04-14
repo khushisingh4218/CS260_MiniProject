@@ -7,7 +7,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">       
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+          
+                 
                
           <div class="container-fluid">
               <img src="hello.jpg" alt="" width="30" height="24">
@@ -17,7 +19,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                   <a class="nav-link" href="student.php">Students</a>
                 </li>
@@ -34,8 +35,11 @@
                   <a class="nav-link" href="alumni.php">Alumni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stats.html">Statistics</a>
-                  </li>
+                  <a class="nav-link" href="stats.html">Statistics</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="queries.php">SQL Queries</a>
+                </li>
                
               </ul>
               

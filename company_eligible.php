@@ -46,36 +46,34 @@
              <div class="head">
     <h1> ELIGIBLE STUDENTS </h1>
 </div>
-    <div class ="subhead">
+    <!-- <div class ="subhead">
 <p>Looking for which company?</p>
-</div>
-<div class="filter">
+</div> -->
+<!-- <div class="filter">
 <form class="row gy-2 gx-3 align-items-center"  method="post" action="<?=$_SERVER['PHP_SELF']?>" method="post">
-
 <div class="col-auto">
 <label for="ccode">Company Code: </label>
 <input type="text" id="ccode" class="form-control"  name="ccode" required><br>
 </div>
-
 <div class="col-auto">
 <input type="submit" name="submit" class="btn btn-info" value="submit">
 </div>
-
 </form>
-</div>
+</div> -->
 </body>
 </html>
 
 <?php
 session_start();
-$ent = $_SESSION["entity"];
-$db = mysqli_connect("localhost", "root", "cse37", "tpc");
-$conn = new mysqli("localhost", "root", "cse37", "tpc");
-if ($_SERVER['REQUEST_METHOD'] == "POST") 
-{
-    $ccode= $_POST['ccode'];
+//$ent = $_SESSION["entity"];
+
+include 'server.php';
+// if ($_SERVER['REQUEST_METHOD'] == "POST") 
+// {
+    $ccode= $_SESSION['id'];
+    //$ccode = "JPMC";
     $sql = "SELECT * FROM companies where ccode ='$ccode'";
-	$result = mysqli_query($db, $sql);
+	$result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     if ($count < 1) {
         echo '<div class="resulthead">';
@@ -101,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     
 
     $sql = "SELECT A.*, B.ccode, B.ctc FROM student_details A LEFT JOIN placements B ON A.rollno=B.rollno where cpi >= '$min_cpi' and semester >= '$min_sem'";
-	$result = mysqli_query($db, $sql);
+	$result = mysqli_query($conn, $sql);
 	$count = mysqli_num_rows($result);
 
 	if ($count < 1) {
@@ -109,9 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 		echo "<p>No results found</p>";
         echo '</div>';
 	} else {
-        echo '<div class="resulthead">';
-        echo "<p>Showing results for the given filters...</p>";
-        echo '</div>';
+        
         $count1 =0;
         $count2 =0;
         while ($row = $result -> fetch_assoc()){
@@ -299,9 +295,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 
 	}
     echo '<div class="newcontainer">';
-    echo $count2;
-    echo ' record(s) found!!';
+    echo 'Number of students eligible to apply at your company: ';
+echo $count;
     echo '</div>';
 }
-}
+//}
 ?>

@@ -2,7 +2,7 @@
 <head>
 
 <title>Update</title>
-    <link rel="stylesheet" href="compupdate.css">
+    <link rel="stylesheet" href="update.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
@@ -29,16 +29,18 @@
                   <a class="nav-link" href="compupdate.php">Update</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="company_stats.php">Statistics</a>
+                  <a class="nav-link" href="company_eligible.php">Eligible Students</a>
                 </li>
                 
                 <li class="nav-item">
                   <a class="nav-link" href="company_alumni.php">Alumni</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="company_placement.html">Placements</a>
+                  <a class="nav-link" href="company_placement.php">Placements</a>
                 </li>
-               
+                <li class="nav-item">
+                  <a class="nav-link" href="company_stats.php">Statistics</a>
+                </li>
               </ul>
               
             </div>
@@ -85,19 +87,19 @@ $row = $result->fetch_assoc();
 <div class="col-md-4">
         <label for="package" class="form-label">
     Package:</label>
-    <input type = "number" value = '<?php echo $row["package"]?>' name = "package" required>
+    <input type = "number" value = '<?php echo $row["package"]?>' class="form-control" name = "package" required>
 </div>
 
 <div class="col-md-4">
-        <label for="mode" >
+        <label for="mode" class="form-label" >
         Mode of recruitment: </label>
-    <input type = "text" value = <?php echo $row["mode"]?> name = "mode" required>
+    <input type = "text" value = '<?php echo $row["mode"]?>' class="form-control" name = "mode" required>
 </div>
 
 <div class="col-md-4">
-        <label for="yor" >
+        <label for="yor" class="form-label" >
     Company registration year in institute: </label>
-    <input type = "text" value = <?php echo $row["yor"]?> name = "yor" required>
+    <input type = "text" value = '<?php echo $row["yor"]?>' class="form-control" name = "yor" required>
 </div>
 <div class="col-12">
 		<button type="submit"  name="submit" class="btn btn-primary"  >Update</button>

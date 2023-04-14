@@ -82,7 +82,7 @@ include 'server.php';
                   <a class="nav-link" href="compupdate.php">Update</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="company_stats.php">Statistics</a>
+                  <a class="nav-link" href="company_eligible.php">Eligible Students</a>
                 </li>
                 
                 <li class="nav-item">
@@ -91,7 +91,9 @@ include 'server.php';
                 <li class="nav-item">
                   <a class="nav-link" href="company_placement.php">Placements</a>
                 </li>
-               
+                <li class="nav-item">
+                  <a class="nav-link" href="company_stats.php">Statistics</a>
+                </li>
               </ul>
               
             </div>

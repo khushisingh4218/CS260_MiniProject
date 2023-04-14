@@ -32,8 +32,11 @@
                </div>
              </nav>
 <body>
+    <?php
+    session_start();
+    ?>
     <div class="reg_head">
-	<h2>REGISTER YOUR COMPANY</h2>
+	<h3>REGISTER YOUR COMPANY</h3>
 </div>
     
 	<form method="post" class="row g-3"  action="">
@@ -89,9 +92,75 @@
     <input type = "password" class="form-control" name = "confpass">
     </div>
 
+    <div margin = "40px" padding = "10px">
+    <label>Choose skills which you would like the candidate to have:</label><br>
+    <input class="form-check-input" type="checkbox" value="ml" name = "ml" checked>
+  <label class="form-check-label" for="ml">
+    Machine Learning
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="cp" name = "cp" checked>
+  <label class="form-check-label" for="cp">
+    Competitive Programming
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="iot" name = "iot" checked>
+  <label class="form-check-label" for="iot">
+    Internet of Things
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="cybsec" name = "cybsec" checked>
+  <label class="form-check-label" for="cybsec">
+    Cybersecurity
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="mng" name = "mng" checked>
+  <label class="form-check-label" for="mng">
+    Management
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="ncc" name = "ncc" checked>
+  <label class="form-check-label" for="ncc">
+    NCC
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="dsa" name = "dsa" checked>
+  <label class="form-check-label" for="dsa">
+    Data Structures and Algorithms
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="nt" name = "nt" checked>
+  <label class="form-check-label" for="nt">
+   Networking
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="db" name = "db" checked>
+  <label class="form-check-label" for="db">
+    Database
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="software" name = "software" checked>
+  <label class="form-check-label" for="software">
+    Software
+  </label>
+  <br>
+
+</div>
+
+
     <div class="col-12">
+        
 		<button type="submit"  name="submit" class="btn btn-primary"  >Register</button>
+        
+            <!-- <input type = "submit" name = "register" value = "Register"> -->
+        <!-- </form> -->
         </div>
+
+
+
+</div>
+
+
         </form>
         <div class="reg">
             Already have an account? 
@@ -100,35 +169,112 @@
 </body>
 </html>
 <?php
+
 include 'server.php';
-$ccode=$_POST['ccode'];
+
+
+
+
+if(isset($_POST["submit"])){
+
+    $ccode=$_POST['ccode'];
 $id = $_POST["ccode"];
 $passw = $_POST["userpass"];
 $conf = $_POST["confpass"];
 $entity = "comp";
 $cname=$_POST['cname'];
-$min_sem=$_POST['min_sem'];
-$min_cpi=$_POST['min_cpi'];
-$package=$_POST['package'];
+$min_sem=(int)$_POST['min_sem'];
+$min_cpi=(double)$_POST['min_cpi'];
+$package=(int)$_POST['package'];
 $mode=$_POST['mode'];
 $yor=$_POST['yor'];
 
-if($conf ==$passw){
-    $sql = "insert into login values('$id', '$passw', '$entity')";
-    $result = $conn->query($sql);
+$ml = 0;
+$cp =0;
+$iot =0;
+$mng = 0;
+$ncc = 0;
+$cybsec = 0;
+$dsa = 0;
+$network = 0;
+$db = 0;
+$software = 0;
 
-   
-   
-    $sql1 ="insert into companies values ('$ccode','$cname','$min_sem','$min_cpi','$package','$mode','$yor')";
-    $result=$conn->query($sql1);
+
+if(isset($_POST["ml"])){
+    $ml = 1;
+}else{
+   $ml = 0;
+}
+
+if(isset($_POST["cp"])){
+    $cp =1;
+}else{
+    $cp =0;
+}
+if(isset($_POST["iot"])){
+    $iot =1;
+}else{
+    $iot =0;
+}
+if(isset($_POST["mng"])){
+    $mng = 1;
+}else{
+    $mng = 0;
+}
+if(isset($_POST["ncc"])){
+    $ncc = 1;
+}else{
+    $ncc = 0;
+}
+if(isset($_POST["cybsec"])){
+    $cybsec = 1;
+}else{
+    $cybsec = 0;
+}
+if(isset($_POST["dsa"])){
+    $dsa = 1;
+}else{
+    $dsa = 0;
+}
+if(isset($_POST["nt"])){
+    $network = 1;
+}else{
+    $network = 0;
+}
+if(isset($_POST["db"])){
+    $db = 1;
+}else{
+    $db = 0;
+}
+if(isset($_POST["software"])){
+    $software = 1;
+}else{
+    $software = 0;
+}
+
+
+
+    if($conf ==$passw){
+        $sql = "insert into login values('$ccode', '$passw', '$entity')";
+        $result = $conn->query($sql);
     
+       
+       
+        $sql1 ="insert into companies values ('$ccode','$cname',$min_sem,$min_cpi,$package,'$mode','$yor')";
+        $result=$conn->query($sql1);
+
+        $sql2 = "insert into skills values('$ccode', $ml, $cp, $iot, $mng, $ncc, $cybsec, $dsa, $network, $db, $software)";
+        $result=$conn->query($sql2);
+        
     
+        }
+        else{
+    
+            echo "Mismatching passwords";
+        }
+}
 
-    }
-    else{
-
-        echo "Mismatching passwords";
-    }
 
 
 

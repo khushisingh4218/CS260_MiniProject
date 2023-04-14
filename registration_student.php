@@ -85,8 +85,8 @@
 		<input type="text"  class="form-control" name="branch" required>
 </div>
 <div class="col-md-4">
-        <label for="yor" >Interest:</label>
-		<input type="text"  class="form-control" name="yor" required>
+        <label for="interest" >Interest:</label>
+		<input type="text"  class="form-control" name="interest" required>
 </div>
 <div class="col-md-4">
         <label for="batch_year" >Batch Year:</label>

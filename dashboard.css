@@ -1,0 +1,27 @@
+.det {
+    padding: 10px;
+   margin:30px;
+   background-color:burlywood;
+}
+
+
+label,input{
+    padding:3px;
+
+}  
+
+.b{
+    padding:10px;
+    
+    
+}
+.heading{
+    margin-left: 38vw;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1vw;
+    margin-bottom: 1vw
+}
+.a{
+    margin-top: 1vw;
+    
+}

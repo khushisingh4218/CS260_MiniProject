@@ -1,15 +1,15 @@
 .row{
     background-color: beige;
     margin-left: 2vw;
-    margin-top: 5vw;
+    margin-top: 0.5vw;
     padding-left: 2vw;
     padding-right: 2vw;
-    padding-bottom: 2vw;
+   padding-bottom: 0.5vw;
     font-family: 'Times New Roman', Times, serif;
 }
 .reg_head{
     margin-bottom: 2vw;
     margin-left: 36vw;
     font-family: 'Times New Roman', Times, serif;
-    margin-top: 2vw;
+    margin-top: 0.5vw;
 }
