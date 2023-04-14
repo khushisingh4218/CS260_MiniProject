@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +36,15 @@ $db = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
 if ($_SERVER['REQUEST_METHOD'] == "POST") 
 {
     $sql = $_POST['query'];
+    // $test = $sql;
+
+    // $n = str_word_count($test);
+    // $t = str_split($test);
+    // print_r($t);
+
+
 	$result = mysqli_query($db, $sql);
+   // echo mysqli_num_fields($result);
 	$count = mysqli_num_rows($result);
     echo "Your query is: $sql <br>";
     // echo "<br>";
@@ -52,6 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     { 
         echo "$count row(s) found: <br>";
         echo "<table class='table table-bordered'> ";
+
+            $i =0;
+        while ($i < mysqli_num_fields($result))
+	{
+		$meta = mysqli_fetch_field($result);
+		echo '<td>' . $meta->name . '</td>';
+		$i = $i + 1;
+	}
     while ($row = $result -> fetch_assoc())
     {   echo " <tr>";
         foreach ($row as $value) {
@@ -65,4 +78,3 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         echo"</table>";
 }
 ?>
-
