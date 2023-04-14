@@ -57,8 +57,8 @@ $dbname = "tpc";
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 $db = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-//$ccode = $_SESSION["id"];
-$ccode = "GGL";
+$ccode = $_SESSION["id"];
+//$ccode = "GGL";
 $sql = "select * from companies where ccode = '$ccode'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
