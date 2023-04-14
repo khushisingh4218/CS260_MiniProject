@@ -1,5 +1,5 @@
 .loginbox{
-    margin-top: 10vw;
+    margin-top: 3vw;
     
     
 }
@@ -33,11 +33,13 @@
 
 
 .home{
+   
     background-color:darkgoldenrod;
     height: 100vh;
 }
 .newcontainer{
-    padding-left: 44vw;
+    margin-left: 38vw;
+    padding-left: 40vw;
     margin-top: 1vw;
    
 }

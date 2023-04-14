@@ -101,7 +101,9 @@ include 'server.php';
     
 </form>
 <div class="newcontainer" style="margin-left:1vw">
-Don't have an account? <a href="registration.php">Register</a><br><br>
+Don't have an account? <a href="registration_student.php">Student</a> | 
+<a href="registration_company.php">Company</a>
+
 </div>
 </div>
 <br>
@@ -109,7 +111,7 @@ Don't have an account? <a href="registration.php">Register</a><br><br>
 
 
 <?php
-if(isset($_POST["userlogin"])){
+if($_SERVER['REQUEST_METHOD']=='POST'){
     $id = $_POST["userid"];
     $passw = $_POST["userpass"];
     $entity = $_POST["entity"];
@@ -121,7 +123,7 @@ if(isset($_POST["userlogin"])){
                 $_SESSION["entity"] = $entity;
                 $_SESSION["id"] = $id;
                 if($entity == "tpcm"){
-                header("Location: http://localhost/CS260_MiniProject/tpchome.php");
+                header("Location: http://localhost/CS260_MiniProject/tpchome.html");
                 }
                 if($entity == "stud"){
                   header("Location: http://localhost/CS260_MiniProject/studenthome.php");
