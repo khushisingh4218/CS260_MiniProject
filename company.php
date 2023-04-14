@@ -134,7 +134,7 @@ if(isset($_POST['alumni'])){
     $min_sem = $_POST['min_sem'];
     $max_yor = $_POST['max_yor'];
     $min_yor = $_POST['min_yor'];
-    $mode = $POST['mode'];
+    $mode = $_POST['mode'];
     $ccode = $_POST['ccode'];
     
 
