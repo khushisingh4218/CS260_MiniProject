@@ -32,6 +32,9 @@
                </div>
              </nav>
 <body>
+    <?php
+    session_start();
+    ?>
     <div class="reg_head">
 	<h2>REGISTER YOUR COMPANY</h2>
 </div>
@@ -96,47 +99,47 @@
     Machine Learning
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="cp" id = "cp" checked>
+  <input class="form-check-input" type="checkbox" value="cp" name = "cp" checked>
   <label class="form-check-label" for="cp">
     Competitive Programming
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="iot" id = "iot" checked>
+  <input class="form-check-input" type="checkbox" value="iot" name = "iot" checked>
   <label class="form-check-label" for="iot">
     Internet of Things
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="cybsec" id = "cybsec" checked>
+  <input class="form-check-input" type="checkbox" value="cybsec" name = "cybsec" checked>
   <label class="form-check-label" for="cybsec">
     Cybersecurity
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="mng" id = "mng" checked>
+  <input class="form-check-input" type="checkbox" value="mng" name = "mng" checked>
   <label class="form-check-label" for="mng">
     Management
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="ncc" id = "ncc" checked>
+  <input class="form-check-input" type="checkbox" value="ncc" name = "ncc" checked>
   <label class="form-check-label" for="ncc">
     NCC
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="dsa" id = "dsa" checked>
+  <input class="form-check-input" type="checkbox" value="dsa" name = "dsa" checked>
   <label class="form-check-label" for="dsa">
     Data Structures and Algorithms
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="nt" id = "nt" checked>
+  <input class="form-check-input" type="checkbox" value="nt" name = "nt" checked>
   <label class="form-check-label" for="nt">
    Networking
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="db" id = "db" checked>
+  <input class="form-check-input" type="checkbox" value="db" name = "db" checked>
   <label class="form-check-label" for="db">
     Database
   </label>
   <br>
-  <input class="form-check-input" type="checkbox" value="software" id = "software" checked>
+  <input class="form-check-input" type="checkbox" value="software" name = "software" checked>
   <label class="form-check-label" for="software">
     Software
   </label>
@@ -166,7 +169,7 @@
 </body>
 </html>
 <?php
-session_start();
+
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass="mysql_pass_23";
@@ -192,19 +195,71 @@ $package=(int)$_POST['package'];
 $mode=$_POST['mode'];
 $yor=$_POST['yor'];
 
+$ml = 0;
+$cp =0;
+$iot =0;
+$mng = 0;
+$ncc = 0;
+$cybsec = 0;
+$dsa = 0;
+$network = 0;
+$db = 0;
+$software = 0;
 
 
-$a = array();
-array_push($a, $_POST["ml"]);
-array_push($a, $_POST["cp"]);
-array_push($a, $_POST["iot"]);
-array_push($a, $_POST["mng"]);
-array_push($a, $_POST["ncc"]);
-array_push($a, $_POST["cybsec"]);
-array_push($a, $_POST["dsa"]);
-array_push($a, $_POST["network"]);
-array_push($a, $_POST["db"]);
-array_push($a, $_POST["software"]);
+if(isset($_POST["ml"])){
+    $ml = 1;
+}else{
+   $ml = 0;
+}
+
+if(isset($_POST["cp"])){
+    $cp =1;
+}else{
+    $cp =0;
+}
+if(isset($_POST["iot"])){
+    $iot =1;
+}else{
+    $iot =0;
+}
+if(isset($_POST["mng"])){
+    $mng = 1;
+}else{
+    $mng = 0;
+}
+if(isset($_POST["ncc"])){
+    $ncc = 1;
+}else{
+    $ncc = 0;
+}
+if(isset($_POST["cybsec"])){
+    $cybsec = 1;
+}else{
+    $cybsec = 0;
+}
+if(isset($_POST["dsa"])){
+    $dsa = 1;
+}else{
+    $dsa = 0;
+}
+if(isset($_POST["nt"])){
+    $network = 1;
+}else{
+    $network = 0;
+}
+if(isset($_POST["db"])){
+    $db = 1;
+}else{
+    $db = 0;
+}
+if(isset($_POST["software"])){
+    $software = 1;
+}else{
+    $software = 0;
+}
+
+
 
     if($conf ==$passw){
         $sql = "insert into login values('$ccode', '$passw', '$entity')";
@@ -215,9 +270,8 @@ array_push($a, $_POST["software"]);
         $sql1 ="insert into companies values ('$ccode','$cname',$min_sem,$min_cpi,$package,'$mode','$yor')";
         $result=$conn->query($sql1);
 
-        
-        $sql2 = "insert into skills values($a[0],$a[1],$a[2],$a[3],$a[4],$a[5],$a[6],$a[7],$a[8],$a[9])";
-        $result=$conn->query($sql1);
+        $sql2 = "insert into skills values('$ccode', $ml, $cp, $iot, $mng, $ncc, $cybsec, $dsa, $network, $db, $software)";
+        $result=$conn->query($sql2);
         
     
         }
