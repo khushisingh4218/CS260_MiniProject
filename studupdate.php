@@ -23,6 +23,7 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 //   } 
 
 $rollno = $_SESSION["id"];
+//$rollno = "2101CS71";
 $sql = "select * from student_details where rollno = '$rollno'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -57,7 +58,20 @@ $row = $result->fetch_assoc();
     <input type = "number" value = <?php echo $row["age"]?> name = "age" required>
     <br>
     Interest: 
-    <input type = "text" value = '<?php echo $row["interest"]?>' name = "interest" required>
+    <select  name="interest">
+  <option value="ml">Machine Learning</option>
+    <option value="cp">Competitive Programming</option>
+    <option value="ncc">NCC</option>
+    <option value="mng">Management</option>
+    <option value="dsa">Data Structures and Algorithms</option>
+    <option value="iot">Internet of Things</option>
+    <option value="network">Networking</option>
+    <option value="cybsec">Cybersecurity</option>
+    <option value="db">Database</option>
+    <option value="software">Software</option>
+
+</select>
+    <!-- <input type = "text" value = '<?php echo $row["interest"]?>' name = "interest" required> -->
     <br>
     Batch year: 
     <input type = "number" value = <?php echo $row["batch_year"]?> name = "batch_year" required>
