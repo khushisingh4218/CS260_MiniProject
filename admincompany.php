@@ -226,22 +226,22 @@ while($row = $result->fetch_assoc()){
     }
    
 }
+if($count==0){
+    
+    echo 'No record found!!';
+      }
+      else{
+     echo $count;
+    echo ' record(s) found!!';}
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 }
 
 ?>
-<div class="newcontainer">
-<?php   if($count==0){
-    
-echo 'No record found!!';
-  }
-  else{
- echo $count;
-echo ' record(s) found!!';}
-?>
-</div>
+
+
+
 
 </body>
 
