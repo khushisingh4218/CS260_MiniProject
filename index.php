@@ -84,6 +84,7 @@ include 'server.php';
     <option value="stud">Student</option>
     <option value="tpcm">TPC Official</option>
     <option value="alum">Alumnus</option>
+    <option value="admin">Admin</option>
 </select></div></li>
 
 <div class="col d-flex justify-content-center border border-white">
@@ -134,6 +135,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                     if($entity == "alum"){
                       header("Location: http://localhost/CS260_MiniProject/alumnihome.php");
                       }
+                      if($entity == "admn"){
+                        header("Location: http://localhost/CS260_MiniProject/adminhome.php");
+                        }
                
             }else{
                 echo "Invalid login";

@@ -39,6 +39,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="stats.html">Statistics</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="queries.php">SQL Queries</a>
+                </li>
                
               </ul>
               

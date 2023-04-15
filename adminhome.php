@@ -19,22 +19,22 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" href="student.php">Students</a>
+                    <a class="nav-link" href="adminstudent.php">Students</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="company.php">Companies</a>
+                    <a class="nav-link" href="admincompany.php">Companies</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="eligible.php">Eligibility</a>
+                    <a class="nav-link" href="admineligible.php">Eligibility</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="placements.php">Placements</a>
+                    <a class="nav-link" href="adminplacements.php">Placements</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="alumni.php">Alumni</a>
+                    <a class="nav-link" href="adminalumni.php">Alumni</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="stats.html">Statistics</a>
+                    <a class="nav-link" href="adminstats.html">Statistics</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="queries.php">SQL Queries</a>
@@ -54,7 +54,7 @@
                     <div class="card-body">
                      
                       <p class="card-text"></p>
-                      <a href="student.php" class="btn btn-dark">Students Details</a>
+                      <a href="adminstudent.php" class="btn btn-dark">Students Details</a>
                     </div>
                   </div>
               </div>
@@ -64,7 +64,7 @@
                     <div class="card-body">
                      
                       <p class="card-text"></p>
-                      <a href="company.php" class="btn btn-dark">Company Details</a>
+                      <a href="admincompany.php" class="btn btn-dark">Company Details</a>
                     </div>
                   </div>
               </div><div class="col">
@@ -73,7 +73,7 @@
                     <div class="card-body">
                      
                       <p class="card-text"></p>
-                      <a href="eligible.php" class="btn btn-dark">Student Eligibility</a>
+                      <a href="admineligible.php" class="btn btn-dark">Student Eligibility</a>
                     </div>
                   </div>
               </div>
@@ -88,7 +88,7 @@
                     <img src="hello.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                       <p class="card-text"></p>
-                      <a href="placements.php" class="btn btn-dark">Current Placements</a>
+                      <a href="adminplacements.php" class="btn btn-dark">Current Placements</a>
                     </div>
                   </div>
               </div>
@@ -109,11 +109,18 @@
                     <div class="card-body">
                       
                       <p class="card-text"></p>
-                      <a href="stats.html" class="btn btn-dark">Statistics</a>
+                      <a href="adminstats.html" class="btn btn-dark">Statistics</a>
                     </div>
                   </div>
               </div>
-              
+              <div class="col"><div class="card" style="width: 20vw;">
+                <img src="hello.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                  <p class="card-text"></p>
+                  <a href="queries.php" class="btn btn-dark">Manual SQL Queries</a>
+                </div>
+              </div></div>
             </div>
           </div>
     </body>
