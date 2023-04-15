@@ -52,7 +52,7 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="dashboard.jpg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -62,7 +62,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="company.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -71,7 +71,7 @@
                   </div>
               </div><div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="eligible.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -87,7 +87,7 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="eligible2.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                       <p class="card-text"></p>
                       <a href="adminplacements.php" class="btn btn-dark">Current Placements</a>
@@ -96,7 +96,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="alumni.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                       
                       <p class="card-text"></p>
@@ -107,7 +107,7 @@
               
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="statistics.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                       
                       <p class="card-text"></p>
@@ -116,7 +116,7 @@
                   </div>
               </div>
               <div class="col"><div class="card" style="width: 20vw;">
-                <img src="hello.jpg" class="card-img-top" alt="...">
+                <img src="sql.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                 <div class="card-body">
                   
                   <p class="card-text"></p>
