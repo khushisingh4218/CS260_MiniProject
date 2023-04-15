@@ -87,6 +87,7 @@
 <?php
 session_start();
 include 'server.php';
+//$ent = "JPMC";
 $ent = $_SESSION["entity"];
 if($ent=="tpcm"){
 ?>
@@ -197,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         }
     }
 
-}
+
 
 ?>
 <div class="newcontainer">
@@ -208,6 +209,7 @@ echo 'No record found!!';
   else{
  echo $a;
 echo ' record(s) found!!';}
+  }
 ?>
 </div>
 </body>
