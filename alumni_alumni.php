@@ -155,22 +155,29 @@ include 'server.php';
   </div>
   <div class="col-auto">
   <input type="submit" class="btn btn-info" value = "Search" name = "alumni">
-  </div>
+  
 
   <?php
+  $ent = "alum";
   if($ent =="tpcm" || $ent=="alum"){
   ?>
-  <input type = "submit" value = "Add Alumni" name = "addalum">
+  <input type = "submit" class="btn btn-info" value = "Add Alumni" name = "addalum">
 
   <?php
   }
   ?>
+  </div>
 </form>
 </div>
 
 
 
 <?php
+
+if(isset($_POST["addalum"])){
+  echo "<script> window.location.href = 'addalum.php';</script>";
+}
+
 if(isset($_POST['alumni'])){
 
     //echo "Hello";
@@ -269,11 +276,7 @@ while($row = $result->fetch_assoc()){
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-}
 
-if(isset($_POST["addalum"])){
-  header("Location: http://localhost/CS260_MiniProject/addalum.php ");
-}
 
 ?>
 <div class="newcontainer">
@@ -284,6 +287,7 @@ echo 'No record found!!';
   else{
  echo $count;
 echo ' record(s) found!!';}
+  }
 ?>
 </div>
 
