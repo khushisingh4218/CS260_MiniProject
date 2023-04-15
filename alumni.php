@@ -6,7 +6,18 @@
 
 </head>
 <body>
+<?php
+session_start();
+include 'server.php';
+//$email = $_SESSION["user_email_delete"];
+// if (mysqli_connect_errno()) {
+//     echo "Failed to connect to MySQL: " . mysqli_connect_error();
+//     exit();
+//   } 
 
+
+
+?> 
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
           
                  
@@ -46,18 +57,7 @@
             </div>
           </div>
         </nav>
-<?php
-session_start();
-include 'server.php';
-//$email = $_SESSION["user_email_delete"];
-// if (mysqli_connect_errno()) {
-//     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-//     exit();
-//   } 
 
-
-
-?> 
 
 
 <div class="head">
@@ -129,13 +129,13 @@ include 'server.php';
     while($rowl=$res->fetch_assoc()){  
       $cc = $rowl["position"];
       
-    ?>
-
+?>
       <option value = "<?php echo $cc?>"><?php echo $cc?></option>
 <?php
     }  
     ?>
-  </select><br><br>
+</select>
+    <br><br>
   </div>
 
 <br><br>
@@ -155,22 +155,21 @@ include 'server.php';
   </div>
   <div class="col-auto">
   <input type="submit" class="btn btn-info" value = "Search" name = "alumni">
+
+
+ 
+  <input type = "submit" class="btn btn-info" value = "Add Alumni" name = "addalum">
   </div>
-
-  <?php
-  if($ent =="tpcm" || $ent=="alum"){
-  ?>
-  <input type = "submit" value = "Add Alumni" name = "addalum">
-
-  <?php
-  }
-  ?>
 </form>
 </div>
 
 
 
 <?php
+if(isset($_POST["addalum"])){
+ // header("Location: http://localhost/CS260_MiniProject/addalum.php ");
+ echo "<script> window.location.href = 'addalum.php';</script>";
+}
 if(isset($_POST['alumni'])){
 
     //echo "Hello";
@@ -269,21 +268,22 @@ while($row = $result->fetch_assoc()){
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-}
 
-if(isset($_POST["addalum"])){
-  header("Location: http://localhost/CS260_MiniProject/addalum.php ");
-}
 
 ?>
 <div class="newcontainer">
-<?php   if($count==0){
+<?php   
+if($count==0){
     
 echo 'No record found!!';
   }
   else{
  echo $count;
 echo ' record(s) found!!';}
+}
+
+
+
 ?>
 </div>
 
