@@ -35,7 +35,7 @@
 
 <?php
 session_start();
-include 'server.php';
+$conn = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
 //$email = $_SESSION["user_email_delete"];
 // if (mysqli_connect_errno()) {
 //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -135,8 +135,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                     if($entity == "alum"){
                       header("Location: http://localhost/CS260_MiniProject/alumnihome.php");
                       }
-                      if($entity == "admn"){
-                        header("Location: http://localhost/CS260_MiniProject/adminhome.php");
+                      if($entity == "admin"){
+                        header("Location: http://localhost:3000/adminhome.php");
                         }
                
             }else{
