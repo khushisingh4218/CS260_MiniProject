@@ -86,7 +86,19 @@
 </div>
 <div class="col-md-4">
         <label for="interest" >Interest:</label>
-		<input type="text"  class="form-control" name="interest" required>
+		    <select  name="interest">
+  <option value="ml">Machine Learning</option>
+    <option value="cp">Competitive Programming</option>
+    <option value="ncc">NCC</option>
+    <option value="mng">Management</option>
+    <option value="dsa">Data Structures and Algorithms</option>
+    <option value="iot">Internet of Things</option>
+    <option value="network">Networking</option>
+    <option value="cybsec">Cybersecurity</option>
+    <option value="db">Database</option>
+    <option value="software">Software</option>
+
+</select>
 </div>
 <div class="col-md-4">
         <label for="batch_year" >Batch Year:</label>
