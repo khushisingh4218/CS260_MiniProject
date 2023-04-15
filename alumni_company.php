@@ -138,7 +138,7 @@ if(isset($_POST['alumni'])){
     $min_sem = $_POST['min_sem'];
     $max_yor = $_POST['max_yor'];
     $min_yor = $_POST['min_yor'];
-    $mode = $POST['mode'];
+    $mode = $_POST['mode'];
     $ccode = $_POST['ccode'];
     
 
@@ -159,7 +159,7 @@ while($row = $result->fetch_assoc()){
                 if($row["min_cpi"]>=$min_cpi  && $row["min_cpi"]<=$max_cpi){
                  
                     if( ($row["yor"]>=$min_yor  && $row["yor"]<=$max_yor)){ //salary
-                        if($row["mode"]=="sel"||$row["mode"]>=$mode ){ //tenure
+                        if($mode=="sel"||$row["mode"]==$mode ){ //tenure
                           
                             $count=$count+1;
                             if($count==1){
@@ -232,7 +232,7 @@ while($row = $result->fetch_assoc()){
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-}
+
 
 ?>
 <div class="newcontainer">
@@ -243,6 +243,7 @@ echo 'No record found!!';
   else{
  echo $count;
 echo ' record(s) found!!';}
+  }
 ?>
 </div>
 
