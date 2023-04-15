@@ -98,7 +98,9 @@ include 'server.php';
                   <a class="nav-link" href="alumni_stats.php">Statistics</a>
                 </li>
               </ul>
-              
+              <form class="d-flex" method="post" action="logout.php">
+                  <button class="btn btn-outline-light" type="submit">Logout</button>
+                </form>
             </div>
           </div>
         </nav>

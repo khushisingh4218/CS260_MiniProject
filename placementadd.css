@@ -1,0 +1,15 @@
+.heading{
+    margin-left: 35vw;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1vw;
+}
+
+.box{
+    margin-left: 2vw;
+    margin-right: 2vw;
+    background-color:blanchedalmond;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}

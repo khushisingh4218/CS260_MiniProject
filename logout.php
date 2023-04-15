@@ -7,6 +7,6 @@ session_unset();
 // destroy the session
 session_destroy(); 
 
-header("Location: http://localhost:3000/index.php");
+header("Location: http://localhost/CS260_MiniProject/index.php");
 
 ?>

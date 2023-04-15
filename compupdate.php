@@ -52,10 +52,11 @@
 
 <?php
 session_start();
+
 include 'server.php';
 
 $ccode = $_SESSION["id"];
-
+//$ccode = "GGL";
 $sql = "select * from companies where ccode = '$ccode'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -89,19 +90,73 @@ $row = $result->fetch_assoc();
 <div class="col-md-4">
         <label for="package" class="form-label">
     Package:</label>
-    <input type = "number" value = '<?php echo $row["package"]?>' class="form-control" name = "package" required>
+    <input type = "number" value = '<?php echo $row["package"]?>' name = "package" class="form-control" required>
 </div>
 
 <div class="col-md-4">
         <label for="mode" class="form-label" >
         Mode of recruitment: </label>
-    <input type = "text" value = '<?php echo $row["mode"]?>' class="form-control" name = "mode" required>
+    <input type = "text" value = <?php echo $row["mode"]?> name = "mode" class="form-control" required>
 </div>
 
 <div class="col-md-4">
-        <label for="yor" class="form-label" >
+        <label for="yor" class="form-label">
     Company registration year in institute: </label>
-    <input type = "text" value = '<?php echo $row["yor"]?>' class="form-control" name = "yor" required>
+    <input type = "text" value = <?php echo $row["yor"]?> name = "yor" class="form-control"  required>
+</div>
+
+<div padding = "20px" margin = "20px">
+Choose skills which you would like the candidate to have: <br>
+    <input class="form-check-input" type="checkbox" value="ml" name = "ml" checked>
+  <label class="form-check-label" for="ml">
+    Machine Learning
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="cp" name = "cp" checked>
+  <label class="form-check-label" for="cp">
+    Competitive Programming
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="iot" name = "iot" checked>
+  <label class="form-check-label" for="iot">
+    Internet of Things
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="cybsec" name = "cybsec" checked>
+  <label class="form-check-label" for="cybsec">
+    Cybersecurity
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="mng" name = "mng" checked>
+  <label class="form-check-label" for="mng">
+    Management
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="ncc" name = "ncc" checked>
+  <label class="form-check-label" for="ncc">
+    NCC
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="dsa" name = "dsa" checked>
+  <label class="form-check-label" for="dsa">
+    Data Structures and Algorithms
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="nt" name = "nt" checked>
+  <label class="form-check-label" for="nt">
+   Networking
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="db" name = "db" checked>
+  <label class="form-check-label" for="db">
+    Database
+  </label>
+  <br>
+  <input class="form-check-input" type="checkbox" value="software" name = "software" checked>
+  <label class="form-check-label" for="software">
+    Software
+  </label>
+  <br>
 </div>
 <div class="col-12">
 		<button type="submit"  name="submit" class="btn btn-primary"  >Update</button>
@@ -112,7 +167,75 @@ $row = $result->fetch_assoc();
 
 <?php
 
+
 if(isset($_POST["submit"])){
+
+    $ml = 0;
+    $cp =0;
+    $iot =0;
+    $mng = 0;
+    $ncc = 0;
+    $cybsec = 0;
+    $dsa = 0;
+    $network = 0;
+    $db = 0;
+    $software = 0;
+    
+    
+    if(isset($_POST["ml"])){
+        $ml = 1;
+    }else{
+       $ml = 0;
+    }
+    
+    if(isset($_POST["cp"])){
+        $cp =1;
+    }else{
+        $cp =0;
+    }
+    if(isset($_POST["iot"])){
+        $iot =1;
+    }else{
+        $iot =0;
+    }
+    if(isset($_POST["mng"])){
+        $mng = 1;
+    }else{
+        $mng = 0;
+    }
+    if(isset($_POST["ncc"])){
+        $ncc = 1;
+    }else{
+        $ncc = 0;
+    }
+    if(isset($_POST["cybsec"])){
+        $cybsec = 1;
+    }else{
+        $cybsec = 0;
+    }
+    if(isset($_POST["dsa"])){
+        $dsa = 1;
+    }else{
+        $dsa = 0;
+    }
+    if(isset($_POST["nt"])){
+        $network = 1;
+    }else{
+        $network = 0;
+    }
+    if(isset($_POST["db"])){
+        $db = 1;
+    }else{
+        $db = 0;
+    }
+    if(isset($_POST["software"])){
+        $software = 1;
+    }else{
+        $software = 0;
+    }
+    
+    
+
     
     $cname = $_POST["cname"];
     $min_cpi = (double)$_POST["min_cpi"];
@@ -123,12 +246,20 @@ if(isset($_POST["submit"])){
     $yor = (int)$_POST["yor"];
 
     $sql = "update companies set cname =  '$cname',package = $package,mode =  '$mode',yor = $yor,min_cpi= $min_cpi, min_sem = $min_sem where ccode = '$ccode'";
-   
+    
+    $sql1 = "update skills set ml = $ml, cp = $cp, iot = $iot, ncc = $ncc, software = $software, dsa = $dsa, network = $network, mng = $mng, db = $db, cybsec = $cybsec where ccode = '$ccode'";
+    // , cp = $a[1],iot = $a[2],mng = $a[3],ncc = $a[4], cybsec = $a[5],dsa = $a[6],network = $a[7],db = $a[8],software = $a[9]
     if( $conn->query($sql)){
-        echo "Updation successful";
+       //echo $a[0];
+        if( $conn->query($sql1)){
+            echo "Updation successful";
+        }else{
+            echo "Unsuccessful attempt";
+        }
     }else{
         echo "Unsuccessful attempt";
     }
+    
 }
 ?>
 

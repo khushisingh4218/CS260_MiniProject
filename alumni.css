@@ -21,6 +21,8 @@
 .filter{
     color: aliceblue;
     margin-top: 1vw;
+    padding-bottom: 1vw;
+    margin-bottom: 1vw;
     padding-left: 2vw;
     padding-top: 1vw;
     background-color: rgb(37, 24, 3);

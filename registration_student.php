@@ -86,7 +86,8 @@
 </div>
 <div class="col-md-4">
         <label for="interest" >Interest:</label>
-		    <select  name="interest">
+		    <select  name="interest" class="form-select">
+        <option value="sel">--select--</option>
   <option value="ml">Machine Learning</option>
     <option value="cp">Competitive Programming</option>
     <option value="ncc">NCC</option>

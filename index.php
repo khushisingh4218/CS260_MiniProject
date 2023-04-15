@@ -35,7 +35,7 @@
 
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "PASSWORD", "tpc");
+include 'server.php';
 //$email = $_SESSION["user_email_delete"];
 // if (mysqli_connect_errno()) {
 //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -108,8 +108,25 @@ Don't have an account? <a href="registration_student.php">Student</a> |
 </div>
 </div>
 <br>
-
-
+<?php 
+function redirect($url)
+{
+    if (!headers_sent())
+    {    
+        header('Location: '.$url);
+        exit;
+        }
+    else
+        {  
+        echo '<script type="text/javascript">';
+        echo 'window.location.href="'.$url.'";';
+        echo '</script>';
+        echo '<noscript>';
+        echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
+        echo '</noscript>'; exit;
+    }
+}
+?>
 
 <?php
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -121,22 +138,23 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     while($row = $result->fetch_assoc()){
         if($row["id"]==$id){
             if($row["passw"]==$passw && $row["entity"]==$entity){
+                
                 $_SESSION["entity"] = $entity;
                 $_SESSION["id"] = $id;
                 if($entity == "tpcm"){
-                header("Location: http://localhost/CS260_MiniProject/tpchome.php");
+                redirect("http://localhost/CS260_MiniProject/tpchome.php");
                 }
                 if($entity == "stud"){
-                  header("Location: http://localhost/CS260_MiniProject/studenthome.html");
+                  redirect(" http://localhost/CS260_MiniProject/studenthome.html");
                   }
                   if($entity == "comp"){
-                    header("Location: http://localhost/CS260_MiniProject/companyhome.php");
+                    redirect("http://localhost/CS260_MiniProject/companyhome.php");
                     }
                     if($entity == "alum"){
-                      header("Location: http://localhost/CS260_MiniProject/alumnihome.php");
+                      redirect("http://localhost/CS260_MiniProject/alumnihome.php");
                       }
                       if($entity == "admin"){
-                        header("Location: http://localhost:3000/adminhome.php");
+                       redirect("http://localhost/CS260_MiniProject/adminhome.php");
                         }
                
             }else{

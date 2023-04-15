@@ -13,41 +13,41 @@
           
                  
                
-          <div class="container-fluid">
-              <img src="hello.jpg" alt="" width="30" height="24">
-            <a class="navbar-brand" href="tpchome.php">TPC</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="student.php">Students</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="company.php">Companies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="eligible.php">Eligibility</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="placements.php">Placements</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="alumni.php">Alumni</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="stats.html">Statistics</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="queries.php">SQL Queries</a>
-                </li>
-               
-              </ul>
-              
+            <div class="container-fluid">
+                <img src="hello.jpg" alt="" width="30" height="24">
+              <a class="navbar-brand" href="adminhome.php">Admin</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="adminstudent.php">Students</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="admincompany.php">Companies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="admineligible.php">Eligibility</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="adminplacements.php">Placements</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="adminalumni.php">Alumni</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="adminstats.html">Statistics</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="queries.php">SQL Queries</a>
+                  </li>
+                 
+                </ul>
+                
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 
 <div class="head">
 <h2>PLACEMENTS</h2>

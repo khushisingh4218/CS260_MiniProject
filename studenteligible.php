@@ -13,41 +13,43 @@
           
                  
                
-          <div class="container-fluid">
-              <img src="hello.jpg" alt="" width="30" height="24">
-            <a class="navbar-brand" href="tpchome.php">TPC</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="student.php">Students</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="company.php">Companies</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="eligible.php">Eligibility</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="placements.php">Placements</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="alumni.php">Alumni</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="stats.html">Statistics</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="queries.php">SQL Queries</a>
-                </li>
-               
-              </ul>
-              
+            <div class="container-fluid">
+                <img src="hello.jpg" alt="" width="30" height="24">
+              <a class="navbar-brand" href="studenthome.html">Home</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="dashboard.php">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studupdate.php">Update</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studenteligible.php">Eligibility</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studcompany.php">Companies</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studplacements.php">Placements</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studalumni.php">Alumni</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studstats.html">Statistics</a>
+                  </li>
+                 
+                </ul>
+                <form class="d-flex" method="post" action="logout.php">
+                  <button class="btn btn-outline-light" type="submit">Logout</button>
+                </form>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 <div class="heading">
     <h2>List Of Companies You Are Eligible For:</h2>
 </div>
