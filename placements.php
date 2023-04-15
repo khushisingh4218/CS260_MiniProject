@@ -41,7 +41,9 @@
                 </li>
                
               </ul>
-              
+              <form class="d-flex" method="post" action="logout.php">
+                  <button class="btn btn-outline-light" type="submit">Logout</button>
+                </form>
             </div>
           </div>
         </nav>
@@ -192,18 +194,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         }
     }
 
-    if($a==0){
-    
-        echo 'No record found!!';
-          }
-          else{
-         echo $a;
-        echo ' record(s) found!!';}
-
 }
 
 ?>
-
-
+<div class="newcontainer">
+<?php   if($a==0){
+    
+echo 'No record found!!';
+  }
+  else{
+ echo $a;
+echo ' record(s) found!!';}
+?>
+</div>
 </body>
 </html>

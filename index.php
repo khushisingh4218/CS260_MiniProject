@@ -7,6 +7,7 @@
 
 </head>
 <body>
+  <div class="bg">
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">       
                
                <div class="container-fluid">
@@ -88,7 +89,7 @@ include 'server.php';
 </select></div></li>
 
 <div class="col d-flex justify-content-center border border-white">
-<li class="list-group-item border border-white" style="margin-top 15vw"><input type = "submit" class="btn btn-primary" value = "Login" name = "userlogin"></li>
+<li class="list-group-item border border-white" style="margin-top 15vw"><input type = "submit" class= "btn btn-info" value = "Login" name = "userlogin"></li>
 
 
 </div>
@@ -182,6 +183,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 // }
 ?>
 </div>
+</bg>
 </body>
 
 </html>

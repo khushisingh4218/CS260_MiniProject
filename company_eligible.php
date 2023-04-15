@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eligibility</title>
-    <link rel="stylesheet" href="eligible.css">
+    <link rel="stylesheet" href="compeligible.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-             <div class="head">
+             <div class="heading">
     <h1> ELIGIBLE STUDENTS </h1>
 </div>
     <!-- <div class ="subhead">
@@ -182,7 +182,7 @@ include 'server.php';
             //     printf("%s , %s , %d, %f, %d, %d, %s, %d, %s , %d, %s", $row["rollno"], $row['name'], $row['semester'], $row['cpi'], $row['grade10'], $row['grade12'], $row['branch'],$row['age'], $row['interest'],$row['batch_year'], $row['placed']);
 			// echo "<br>";
             $count2=$count2+1;
-            echo '<div class="container">
+            echo '<div class="container1">
                             <div class="row">
                             <div class="col">';
                         echo $row['rollno'];
@@ -299,7 +299,7 @@ include 'server.php';
         }
 
 	}
-    echo '<div class="newcontainer">';
+    echo '<div class="result">';
     echo 'Number of students eligible to apply at your company: ';
 echo $count2;
     echo '</div>';

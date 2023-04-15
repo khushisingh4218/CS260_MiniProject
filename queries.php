@@ -44,7 +44,9 @@
                   </li>
                  
                 </ul>
-                
+                <form class="d-flex" method="post" action="logout.php">
+                  <button class="btn btn-outline-light" type="submit">Logout</button>
+                </form>
               </div>
             </div>
           </nav>

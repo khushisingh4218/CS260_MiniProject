@@ -1,0 +1,24 @@
+.container{
+    margin-top: 1vw;
+    background-color:burlywood;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    
+}
+.heading{
+    margin-left: 37vw;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container1{
+    
+    background-color:linen;
+    margin-top: 0.001vh;
+    padding-left:1vw ;
+    margin-left: 7vw;
+    margin-right: 7vw;
+}
+.result{
+    margin-left: 5vw;
+  margin-top: 1vw;
+  font-family: 'Times New Roman', Times, serif;
+}
