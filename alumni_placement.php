@@ -86,6 +86,7 @@
 session_start();
 include 'server.php';
 $ent = $_SESSION["entity"];
+//$ent = "tpcm";
 if($ent=="tpcm"){
 ?>
 <div class="col-auto">
@@ -195,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
         }
     }
 
-}
+
 
 ?>
 <div class="newcontainer">
@@ -206,6 +207,7 @@ echo 'No record found!!';
   else{
  echo $a;
 echo ' record(s) found!!';}
+  }
 ?>
 </div>
 </body>
