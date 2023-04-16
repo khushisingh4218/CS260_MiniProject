@@ -112,7 +112,7 @@ insert into placements values(
 
 
 create table alumnus(
-rollno varchar(10) primary key,
+rollno varchar(10),
 ccode varchar(10),
 ctc int,
 area varchar(20),
@@ -120,6 +120,8 @@ position varchar(20),
 tenure int);
 
 alter table alumnus add foreign key (ccode) references companies(ccode);
+alter table alumnus add foreign key (rollno) references login(id);
+
 
 insert into alumnus values(
 "1401CS01", "GGL",6000000,"California","SDE",3);
@@ -250,7 +252,7 @@ insert into placements values("2011MM23", "GGL", 9000000, 4, 2022);
 
 
 insert into alumnus values("1421EP99", "MCB", 7000000,"Delhi","Senior Head", 3,2018);
-insert into alumnus values("1821CS99", "JPMC", 8000000,"Hyderabad","SDE", 4,2019);
+
 
 
 insert into login values("ADM001","abhay","admin");
