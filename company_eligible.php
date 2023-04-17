@@ -76,6 +76,7 @@ include 'server.php';
 // if ($_SERVER['REQUEST_METHOD'] == "POST") 
 // {
     $ccode= $_SESSION['id'];
+    $interest_grade = 0;
     //$ccode = "JPMC";
     $sql = "SELECT * FROM companies where ccode ='$ccode'";
 	$result = mysqli_query($conn, $sql);
@@ -90,11 +91,12 @@ include 'server.php';
         $min_sem=$row['min_sem'];
         $min_cpi=$row['min_cpi'];
         $package=$row['package'];
+        
 
     
     }
     
-    $t = "select * from skills where ccode = '$ccode'";
+    $t = "select * from skills_pass_grade where ccode = '$ccode'";
     $res = $conn->query($t);
     $r = $res->fetch_assoc();
     $a = array($r["ml"],$r["cp"],$r["iot"],$r["mng"],$r["ncc"],$r["cybsec"],$r["dsa"],$r["network"],$r["db"],$r["software"]);
@@ -122,7 +124,7 @@ include 'server.php';
             foreach($b as $val){
 
                 if($val== $row["interest"]){
-                    if($a[$x]==true){
+                    if($a[$x]<=$row["interest_grade"]){
                         $present = true;
                     }   
                 }
