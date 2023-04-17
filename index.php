@@ -137,6 +137,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $id = $_POST["userid"];
     $passw = $_POST["userpass"];
     $entity = $_POST["entity"];
+    $_SESSION['id']=$id;
     $sql = "select * from login where id = '$id'";
     $result = $conn->query($sql);
     while($row = $result->fetch_assoc()){
