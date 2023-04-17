@@ -1,16 +1,19 @@
 .loginbox{
-    margin-top: 5vw;
+    margin-top: 1vw;
    
     height: 70vw;
     opacity: 1;
     
 }
 .headwelcome{
-    background-color:#17a2b8;
+    padding-top: 1vw;
+    background-color:black;
     font-family: 'Times New Roman', Times, serif;
-   
+    color: aliceblue;
     height: 4vw;
-    padding-left: 2vw;
+    font-size: larger;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
 }
 
 #id1{
@@ -35,8 +38,8 @@
 
 
 .bg{
-    background-image: url("bg_login2.jpg");
-
+    /* background-image: url("bg_login2.jpg"); */
+    background-color: #99a7b3;
     height: 100%; 
 
     /* Center and scale the image nicely */
@@ -47,9 +50,13 @@
     
     
 }
+.logo{
+    margin-left: 45vw;
+    
+}
 .newcontainer{
-    margin-left: 38vw;
-    padding-left: 40vw;
+    margin-left: 30vw;
+    padding-left: 39vw;
     margin-bottom: 2vw;
     font-weight: bold;
    

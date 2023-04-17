@@ -51,6 +51,9 @@ include 'server.php';
 
 <br>
 <!-- <h3> If tpc member, login via passcode</h3> -->
+<div class="logo">
+  <img src="hello.jpg" height="150px"  alt="">
+</div>
 <form method = "post">
 <div class="loginbox">
 <div class="col d-flex justify-content-center">
@@ -59,7 +62,7 @@ include 'server.php';
  <div class="headcontainer>   
   <li class="list-group-item">
   <div class="headwelcome col d-flex justify-content-center" >
-    <h1> IIT PATNA</h1>
+   TRAINING  AND  PLACEMENT CELL
 </div>
 </li>
 </div>
@@ -89,7 +92,7 @@ include 'server.php';
 </select></div></li>
 
 <div class="col d-flex justify-content-center border border-white">
-<li class="list-group-item border border-white" style="margin-top 15vw"><input type = "submit" class= "btn btn-info" value = "Login" name = "userlogin"></li>
+<li class="list-group-item border border-white" style="margin-top 15vw"><input type = "submit" class= "btn btn-dark" value = "Login" name = "userlogin"></li>
 
 
 </div>
