@@ -71,38 +71,15 @@ include 'server.php';
 <div class="filter">
 <form class="row gy-2 gx-3 align-items-center"  method ="post" >
 
-  <div class="col-auto">
+  <!-- <div class="col-auto">
   
   <label for="rollno">Enter roll number</label>
   <input type = "text" class ="form-control" name = "rollno">
   <br><br>
-</div>
+</div> -->
 
 
-<div class="col-auto">
-  <label for = "ccode">Company code</label>
-  <select  name="ccode" class="form-select">
-  <!-- <option value="sel">--SELECT--</option>
-    <option value="MCB">Mercedes Benz</option>
-    <option value="GGL">Google India</option>
-    <option value="JPMC">J.P. Morgan</option>
-    <option value="ATL">Atlassian</option> -->
-    <option value="sel">--SELECT--</option>
-    <?php
-    $sq = "select distinct ccode from alumnus";
-    $res=$conn->query($sq); 
-    while($rowl=$res->fetch_assoc()){  
-      $cc = $rowl["ccode"];
-      
-    ?>
 
-      <option value = "<?php echo $cc?>"><?php echo $cc?></option>
-<?php
-    }  
-    ?>
-  </select>
-    <br><br>
-  </div>
 
 
 
@@ -180,8 +157,8 @@ if(isset($_POST['alumni'])){
 
     //echo "Hello";
 
-    $rollno = $_POST['rollno'];
-    $ccode = $_POST['ccode'];
+
+    $ccode = $_SESSION['id'];
     $position = $_POST['position'];
     $atenure = $_POST['atenure'];
     $btenure = $_POST['btenure'];
@@ -198,9 +175,9 @@ if(isset($_POST['alumni'])){
 //     $result=mysqli_query($conn, $sql);
 while($row = $result->fetch_assoc()){
     //echo "Roll no ".$row["rollno"];
-    if( $rollno==""  || $row["rollno"]==$rollno){
+
         
-        if($ccode=="sel" || $row["ccode"]==$ccode){
+        if( $row["ccode"]==$ccode){
                 
             if($position=="sel" || $row["position"]==$position){
                 if($area=="" || $row["area"]==$area){
@@ -266,7 +243,6 @@ while($row = $result->fetch_assoc()){
                     }
                 }
             }
-        }
         
     
     }
