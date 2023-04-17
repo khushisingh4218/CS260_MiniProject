@@ -58,10 +58,6 @@
 <div class="filter">
 <form class="row gy-2 gx-3 align-items-center" method="post" action="<?=$_SERVER['PHP_SELF']?>" method="post">
 
-<div class="col-auto">
-<label for="ccode">Company Code:</label>
-<input type="text" class="form-control" id="ccode" name="ccode" ><br><br>
-</div>
 
 <div class="col-auto">
 <label for="psem">Placed in sem:</label>
@@ -111,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
     if(isset($_POST["pladd"])){
         header("Location: http://localhost/CS260_MiniProject/placementadd.php");
     }else{
-        $ccode= $_POST['ccode'];
+        $ccode= $_SESSION['id'];
         $CTC=$_POST['CTC'];
         $CTC2=$_POST['CTC2'];
         $psem=$_POST['psem'];
@@ -130,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
             while ($row = $result -> fetch_assoc()){
                 if ($row['psem'] ==(int)$psem || $psem== "")
                 {
-                    if( $row['ccode'] == $ccode || $ccode =="")
+                    if( $row['ccode'] == $ccode)
                     {
                         if( $row['ctc'] >= (int)$CTC || $CTC =="")
                         {
