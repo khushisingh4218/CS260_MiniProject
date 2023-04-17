@@ -12,7 +12,7 @@
                  
                
           <div class="container-fluid">
-              <img src="hello.jpg" alt="" width="30" height="24">
+              <img src="hello.jpg" alt="" width="30" height="24" >
             <a class="navbar-brand" href="companyhome.php">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="dashboard.jpg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -61,7 +61,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="update.png" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -71,7 +71,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="eligible.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -89,7 +89,7 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="alumni.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                       <p class="card-text"></p>
                       <a href="company_alumni.php" class="btn btn-dark">Alumni</a>
@@ -98,7 +98,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="eligible2.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                       
                       <p class="card-text"></p>
@@ -109,7 +109,7 @@
               
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="statistics.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
                     <div class="card-body">
                       
                       <p class="card-text"></p>
