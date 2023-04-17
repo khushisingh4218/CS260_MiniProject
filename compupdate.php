@@ -107,55 +107,67 @@ $row = $result->fetch_assoc();
 
 <div padding = "20px" margin = "20px">
 Choose skills which you would like the candidate to have: <br>
-    <input class="form-check-input" type="checkbox" value="ml" name = "ml" checked>
+<input class="form-check-input" type="checkbox" value="ml" name = "ml" checked>
   <label class="form-check-label" for="ml">
     Machine Learning
   </label>
+
+  <input  type="text" value = "100" name = "mlt"  >
   <br>
-  <input class="form-check-input" type="checkbox" value="cp" name = "cp" checked>
+<input class="form-check-input" type="checkbox" value="cp" name = "cp" checked>
   <label class="form-check-label" for="cp">
     Competitive Programming
   </label>
+  <input  type="text" value = "100" name = "cpt"  >
   <br>
   <input class="form-check-input" type="checkbox" value="iot" name = "iot" checked>
   <label class="form-check-label" for="iot">
     Internet of Things
   </label>
+  <input  type="text" value = "100" name = "iott"  >
   <br>
   <input class="form-check-input" type="checkbox" value="cybsec" name = "cybsec" checked>
   <label class="form-check-label" for="cybsec">
     Cybersecurity
   </label>
+  <input  type="text" value = "100" name = "cybsect"  >
   <br>
   <input class="form-check-input" type="checkbox" value="mng" name = "mng" checked>
   <label class="form-check-label" for="mng">
     Management
   </label>
+  <input  type="text" value = "100" name = "mngt"  >
   <br>
   <input class="form-check-input" type="checkbox" value="ncc" name = "ncc" checked>
   <label class="form-check-label" for="ncc">
     NCC
   </label>
+  <input  type="text" value = "100" name = "ncct"  >
   <br>
   <input class="form-check-input" type="checkbox" value="dsa" name = "dsa" checked>
   <label class="form-check-label" for="dsa">
     Data Structures and Algorithms
   </label>
+  <input  type="text" value = "100" name = "dsat"  >
   <br>
   <input class="form-check-input" type="checkbox" value="nt" name = "nt" checked>
   <label class="form-check-label" for="nt">
    Networking
   </label>
+  <input  type="text" value = "100" name = "ntt"  >
   <br>
   <input class="form-check-input" type="checkbox" value="db" name = "db" checked>
   <label class="form-check-label" for="db">
     Database
   </label>
+  <input  type="text" value = "100" name = "dbt"  >
   <br>
   <input class="form-check-input" type="checkbox" value="software" name = "software" checked>
   <label class="form-check-label" for="software">
     Software
   </label>
+  <input  type="text" value = "100" name = "softwaret"  >
+  <br>
   <br>
 </div>
 <div class="col-12">
@@ -170,71 +182,50 @@ Choose skills which you would like the candidate to have: <br>
 
 if(isset($_POST["submit"])){
 
-    $ml = 0;
-    $cp =0;
-    $iot =0;
-    $mng = 0;
-    $ncc = 0;
-    $cybsec = 0;
-    $dsa = 0;
-    $network = 0;
-    $db = 0;
-    $software = 0;
-    
-    
-    if(isset($_POST["ml"])){
-        $ml = 1;
-    }else{
-       $ml = 0;
-    }
-    
-    if(isset($_POST["cp"])){
-        $cp =1;
-    }else{
-        $cp =0;
-    }
-    if(isset($_POST["iot"])){
-        $iot =1;
-    }else{
-        $iot =0;
-    }
-    if(isset($_POST["mng"])){
-        $mng = 1;
-    }else{
-        $mng = 0;
-    }
-    if(isset($_POST["ncc"])){
-        $ncc = 1;
-    }else{
-        $ncc = 0;
-    }
-    if(isset($_POST["cybsec"])){
-        $cybsec = 1;
-    }else{
-        $cybsec = 0;
-    }
-    if(isset($_POST["dsa"])){
-        $dsa = 1;
-    }else{
-        $dsa = 0;
-    }
-    if(isset($_POST["nt"])){
-        $network = 1;
-    }else{
-        $network = 0;
-    }
-    if(isset($_POST["db"])){
-        $db = 1;
-    }else{
-        $db = 0;
-    }
-    if(isset($_POST["software"])){
-        $software = 1;
-    }else{
-        $software = 0;
-    }
-    
-    
+
+  $ml = 100;
+  $cp =100;
+  $iot =100;
+  $mng = 100;
+  $ncc = 100;
+  $cybsec = 100;
+  $dsa = 100;
+  $network = 100;
+  $db = 100;
+  $software = 100;
+  
+  
+  if(isset($_POST["ml"])){
+      $ml = (double)$_POST["mlt"];
+  }
+  
+  if(isset($_POST["cp"])){
+      $cp =(double)$_POST["cpt"];
+  }
+  if(isset($_POST["iot"])){
+      $iot =(double)$_POST["iott"];
+  }
+  if(isset($_POST["mng"])){
+      $mng = (double)$_POST["mngt"];
+  }
+  if(isset($_POST["ncc"])){
+      $ncc = (double)$_POST["ncct"];
+  }
+  if(isset($_POST["cybsec"])){
+      $cybsec = (double)$_POST["cybsect"];
+  }
+  if(isset($_POST["dsa"])){
+      $dsa = (double)$_POST["dsat"];
+  }
+  if(isset($_POST["nt"])){
+      $network = (double)$_POST["ntt"];
+  }
+  if(isset($_POST["db"])){
+      $db = (double)$_POST["dbt"];
+  }
+  if(isset($_POST["software"])){
+      $software = (double)$_POST["softwaret"];
+  }
 
     
     $cname = $_POST["cname"];
@@ -247,7 +238,7 @@ if(isset($_POST["submit"])){
 
     $sql = "update companies set cname =  '$cname',package = $package,mode =  '$mode',yor = $yor,min_cpi= $min_cpi, min_sem = $min_sem where ccode = '$ccode'";
     
-    $sql1 = "update skills set ml = $ml, cp = $cp, iot = $iot, ncc = $ncc, software = $software, dsa = $dsa, network = $network, mng = $mng, db = $db, cybsec = $cybsec where ccode = '$ccode'";
+    $sql1 = "update skills_pass_grade set ml = $ml, cp = $cp, iot = $iot, ncc = $ncc, software = $software, dsa = $dsa, network = $network, mng = $mng, db = $db, cybsec = $cybsec where ccode = '$ccode'";
     // , cp = $a[1],iot = $a[2],mng = $a[3],ncc = $a[4], cybsec = $a[5],dsa = $a[6],network = $a[7],db = $a[8],software = $a[9]
     if( $conn->query($sql)){
        //echo $a[0];
