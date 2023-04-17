@@ -64,7 +64,9 @@ include 'server.php';
     $mycpi = 0;
     $mysem = 0;
     $interest = "";
+    $interest_grade = 0;
     $id= $_SESSION['id'];
+    //$id = "2101CS33";
 
     $sql = "select * from placements where rollno = '$id'";
     $result = $conn->query($sql);
@@ -86,6 +88,7 @@ include 'server.php';
            $interest = $row["interest"];
             $mycpi = (double)$row["cpi"];
             $mysem = (int)$row["semester"];
+            $interest_grade =(double) $row["interest_grade"];
         }
     
 
@@ -101,12 +104,12 @@ include 'server.php';
 
 
             $ccode = $row["ccode"];
-            $tv= "select * from skills where ccode = '$ccode'";
+            $tv= "select * from skills_pass_grade where ccode = '$ccode'";
             $present = false;
             $res = $conn->query($tv);
             while($r = $res->fetch_assoc()){
 
-                if($r[$interest]){
+                if($r[$interest]<=$interest_grade){
                     $present = true;
             }
             }
