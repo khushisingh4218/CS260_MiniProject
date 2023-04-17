@@ -101,10 +101,7 @@ if($ent=="tpcm"){
 </div>
 
 
-<div class="newcontainer">
-<?php echo 'Showing results for the given filters...';
-?>
-</div>
+
 
 <?php
 
@@ -113,7 +110,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST")
 {
     if(isset($_POST["pladd"])){
         header("Location: http://localhost/CS260_MiniProject/placementadd.php");
-    }else{
+    }else if(isset($_POST["submit"])){
+     echo ' <div class="newcontainer">';
+ echo 'Showing results for the given filters...';
+
+echo '</div>';
         $ccode= $_POST['ccode'];
         $CTC=$_POST['CTC'];
         $CTC2=$_POST['CTC2'];

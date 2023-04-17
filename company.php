@@ -354,7 +354,7 @@ while($row = $result->fetch_assoc()){
 
 // mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-}
+
 
 ?>
 <div class="newcontainer">
@@ -365,6 +365,7 @@ echo 'No record found!!';
   else{
  echo $count;
 echo ' record(s) found!!';}
+  }
 ?>
 </div>
 

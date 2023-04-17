@@ -1,7 +1,7 @@
 .container{
-    border: 2mm;
-    border-color: blue;
-    background-color: aqua;
+    
+    
+    background-color:blanchedalmond;
     font-family: 'Times New Roman', Times, serif;
 }
 .newcontainer{
@@ -10,6 +10,9 @@
    margin-bottom: 1vw; 
 }
 
+.container1{
+    margin-left: 5vw;
+}
 .head{
     margin-top: 1vw;
     align-content: center;

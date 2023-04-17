@@ -119,9 +119,9 @@ include 'server.php';
  
 </form>
   </div>
-<div class="newcontainer">
+<!-- <div class="newcontainer">
 Want to add a new company? <a href="company_register.php">Click here</a><br><br>
-</div>
+</div> -->
 
 
 

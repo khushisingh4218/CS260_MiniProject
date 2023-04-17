@@ -73,7 +73,7 @@
 <?php
 session_start();
 $ent = $_SESSION["entity"];
-include 'server.h';
+include 'server.php';
 if ($_SERVER['REQUEST_METHOD'] == "POST") 
 {
     $ccode= $_POST['ccode'];

@@ -11,3 +11,44 @@
     margin-top: 2vw;
     margin-left: 2vw;
 }
+.container{
+    padding: auto;
+    margin-top: 10vh;
+    margin-left: 65vh;
+    margin-right: 25vh;
+    height: 10vw;
+    background-color:azure;
+    /* display: flex; */
+    
+
+}
+
+.card-img-top{
+   height: 50%;
+
+}
+.card{
+    background-color: blue;
+}
+.bg{
+background-color:aliceblue;
+height: 100vh;
+}
+.container1{
+    
+    padding: auto;
+    margin-top: 5vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    
+    /* display: flex; */
+}
+.card-body{
+    background-color:lightblue;
+    border-color: black;
+    border-width: 1vw;
+}
+/* .body{
+    align-self: center;
+    margin-left: 50vw;
+} */

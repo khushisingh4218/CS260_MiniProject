@@ -160,7 +160,7 @@ include 'server.php';
   
 
   <?php
-  $ent = "alum";
+
   if($ent =="tpcm" || $ent=="alum"){
   ?>
   <input type = "submit" class="btn btn-info" value = "Add Alumni" name = "addalum">

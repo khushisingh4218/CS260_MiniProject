@@ -7,6 +7,7 @@
     </head>
 
     <body>
+      <div class="bg">
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
           
                  
@@ -51,7 +52,7 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="dashboard.jpg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
+                    <img src="dashboard.jpg" class="card-img-top" alt="..." style="width: 20vw;height: 13vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -61,7 +62,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
+                    <img src="hello.jpg" class="card-img-top" alt="..." style="width: 20vw;height: 13vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -71,7 +72,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="alumni.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
+                    <img src="alumni.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 13vw;">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -89,7 +90,7 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="company.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
+                    <img src="company.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 13vw;">
                     <div class="card-body">
                       <p class="card-text"></p>
                       <a href="alumni_company.php" class="btn btn-dark">Companies</a>
@@ -98,7 +99,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="eligible2.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
+                    <img src="eligible2.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 13vw;">
                     <div class="card-body">
                       
                       <p class="card-text"></p>
@@ -109,7 +110,7 @@
               
               <div class="col">
                 <div class="card" style="width: 20vw;">
-                    <img src="statistics.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 20vw;">
+                    <img src="statistics.jpeg" class="card-img-top" alt="..." style="width: 20vw;height: 13vw;">
                     <div class="card-body">
                       
                       <p class="card-text"></p>
@@ -117,7 +118,7 @@
                     </div>
                   </div>
               </div>
-
+</div>
             </div>
           </div>
     </body>

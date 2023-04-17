@@ -88,7 +88,7 @@
 session_start();
 include 'server.php';
 $ent = $_SESSION["entity"];
-if($ent=="tpcm"){
+if($ent=="tpcm" || $ent=="admin"){
 ?>
 <div class="col-auto">
 <input type = "submit"  class="btn btn-info" name = "pladd" value = "Add new placements">

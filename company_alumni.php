@@ -158,7 +158,7 @@ include 'server.php';
   </div>
 
   <?php
-  $ent = "alum";
+ 
   if($ent =="tpcm" || $ent=="alum"){
   ?>
   <input type = "submit" value = "Add Alumni" name = "addalum">

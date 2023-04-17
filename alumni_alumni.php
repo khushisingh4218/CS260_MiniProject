@@ -155,17 +155,7 @@ include 'server.php';
   </div>
   <div class="col-auto">
   <input type="submit" class="btn btn-info" value = "Search" name = "alumni">
-  
 
-  <?php
-  $ent = "alum";
-  if($ent =="tpcm" || $ent=="alum"){
-  ?>
-  <input type = "submit" class="btn btn-info" value = "Add Alumni" name = "addalum">
-
-  <?php
-  }
-  ?>
   </div>
 </form>
 </div>

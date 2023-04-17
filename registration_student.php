@@ -56,10 +56,7 @@
 		<input type="number" step="1" class="form-control"  name="semester" required>
     </div>
 
-    <div class="col-md-2">
-		<label for="cpi" class="form-label">CPI</label>
-		<input type="number" name="cpi" step="0.01" class="form-control"required>
-    </div>
+   
 
     <div class="col-md-2">
         <label for="grade10" class="form-label">X marks:</label>
@@ -102,6 +99,10 @@
 </select>
 </div>
 <div class="col-md-4">
+        <label for="batch_year" >Grade corresponding to interest chosen:</label>
+		<input type="number" step="1" class="form-control" name="batch_year" required>
+</div>
+<div class="col-md-4">
         <label for="batch_year" >Batch Year:</label>
 		<input type="text"  class="form-control" name="batch_year" required>
 </div>
@@ -122,17 +123,74 @@
     </div>
 
     <div class="col-12">
-		<button type="submit"  name="submit" class="btn btn-primary"  >Register</button>
+		<button type="next"  name="next" class="btn btn-primary"  >Next</button>
         </div>
         </form>
-        <div class="reg">
+        <!-- <div class="reg">
             Already have an account? 
             <a href="index.php">Login</a>
-</div>
+</div> -->
 </body>
 </html>
 <?php
 include 'server.php';
+
+if(isset($_POST["next"])){
+  echo '
+  <div class="spiheader">
+  <h3>Academic Details<h3><br>
+  </div>
+
+  <form method="post" class="row g-3"  action="">
+ 
+  <div class="col-md-2">
+  <label for = "sem1" >SPI obtained in 1st semester: </label>
+  <input type = "number" class="form-control" name = "sem1">
+  </div>
+
+  <div class="col-md-2">
+  <label for = "sem2" >SPI obtained in 2ndsemester: </label>
+  <input type = "number" class="form-control" name = "sem2">
+  </div>
+
+  <div class="col-md-2">
+  <label for = "sem3" >SPI obtained in 3rd semester: </label>
+  <input type = "number" class="form-control" name = "sem3">
+  </div>
+  <div class="col-md-2">
+  <label for = "sem4" >SPI obtained in 4th semester: </label>
+  <input type = "number" class="form-control" name = "sem4">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+  <label for = "sem5" >SPI obtained in 5th semester: </label>
+  <input type = "number" class="form-control" name = "sem5">
+  </div>
+  <div class="col-md-2">
+  <label for = "sem6" >SPI obtained in 6th semester: </label>
+  <input type = "number" class="form-control" name = "sem6">
+  </div>
+  <div class="col-md-2">
+  <label for = "sem7" >SPI obtained in 7th semester: </label>
+  <input type = "number" class="form-control" name = "sem7">
+  </div>
+
+<div class="col-md-2">
+  <label for = "sem8" >SPI obtained in 8th semester: </label>
+  <input type = "number" class="form-control" name = "sem8">
+  </div>
+  </div>
+
+  <div class="col-12">
+  <button type="submit"  name="submit" class="btn btn-primary"  >Register</button>
+      </div>
+      </form>
+
+  ';
+  echo '<br><br>';
+}
+
 
 if(isset($_POST["submit"])){
 $rollno=$_POST['rollno'];
@@ -167,6 +225,8 @@ if($conf ==$passw){
 
         echo "Mismatching passwords";
     }
+
+   
 
 
   }
