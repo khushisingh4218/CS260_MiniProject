@@ -5,7 +5,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </head>
-
     <body>
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
           
@@ -19,7 +18,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                   <a class="nav-link" href="company_dashboard.php">Dashboard</a>
                 </li>
@@ -46,12 +44,11 @@
             </div>
           </div>
         </nav>
-
         <div class="container1" style="margin-top: 20vh; margin-left: 15vw;">
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 25vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="presentstats.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -61,7 +58,7 @@
               </div>
               <div class="col">
                 <div class="card" style="width: 25vw;">
-                    <img src="hello.jpg" class="card-img-top" alt="...">
+                    <img src="paststats.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                      
                       <p class="card-text"></p>
@@ -69,11 +66,9 @@
                     </div>
                   </div>
               
-
               
             </div>
           </div>
-
  
     </body>
 </html>
