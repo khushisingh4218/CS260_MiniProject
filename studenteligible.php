@@ -200,4 +200,3 @@ echo 'Number of companies you are eligible to apply at: ';
 echo $count;
 echo '</div>';
 ?>
-

@@ -74,25 +74,21 @@ include 'server.php';
     Company code:</label>
     <input type = "text" class="form-control" value = "" name = "ccode">
     </div>
-    <div class="col-md-4">
-    <label for="position" class="form-label">
-    Position:</label>
-    <input type = "text" class="form-control" value = "" name = "position">
-    </div>
+    
     <div class="col-md-4">
     <label for="ctc" class="form-label">
     Package: </label>
     <input type = "text" class="form-control" value = "" name = "ctc">
     </div>
     <div class="col-md-4">
-    <label for="area" class="form-label">
-    Area:</label>
-    <input type = "text" class="form-control" value = "" name = "area">
+    <label for="psem" class="form-label">
+    Placed in Semester:</label>
+    <input type = "text" class="form-control" value = "" name = "psem">
     </div>
     <div class="col-md-4">
-    <label for="tenure" class="form-label">
-    Tenure: </label>
-    <input type = "text" value = "" class="form-control" name = "tenure">
+    <label for="pyear" class="form-label">
+    Placed in Year: </label>
+    <input type = "text" value = "" class="form-control" name = "pyear">
     </div>
     <div class="col-12">
 		<button type="submit"  name="submit" class="btn btn-primary"  >Add Placement</button>
@@ -106,17 +102,17 @@ include 'server.php';
 
 if(isset($_POST["submit"])){
     $rollno = $_POST["rollno"];
-    $position = $_POST["position"];
+  
     $ctc = (int)$_POST["ctc"];
 
-    $area = $_POST["area"];
-    $tenure = (int)$_POST["tenure"];
+    $psem = $_POST["psem"];
+    $pyear = (int)$_POST["pyear"];
     $ccode = $_POST["ccode"];
 
-    $sql = "insert into alumnus values('$rollno', '$ccode','$ctc', '$area','$position', '$tenure')";
+    $sql = "insert into placements values('$rollno', '$ccode','$ctc', '$psem','$pyear')";
    
     if( $conn->query($sql)){
-        echo "Values inerted successfully";
+        echo "Placement added successfully";
     }else{
         echo "Unsuccessful attempt";
     }

@@ -56,6 +56,7 @@ include 'server.php';
 
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="compstats.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -110,17 +111,6 @@ include 'server.php';
 <br>
 </div>
 
-<div class="col">
-<canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
-<br>
-</div>
-</div>
-
-<div class ="row">
-    <div class="col" >
-<canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
-<br>
-</div>
 
 
 

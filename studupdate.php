@@ -53,8 +53,8 @@
 <?php
 session_start();
 include 'server.php';
-//$rollno = $_SESSION["id"];
-$rollno = "2101CS71";
+$rollno = $_SESSION["id"];
+
 $sql = "select * from student_details where rollno = '$rollno'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();

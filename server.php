@@ -2,7 +2,7 @@
 // Database configuration
 $db_host = 'localhost';
 $db_username = 'root';
-$db_password = '';
+$db_password = 'PASSWORD';
 $db_name = 'tpc';
 
 // Connect to database

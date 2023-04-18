@@ -7,6 +7,7 @@
     </head>
 
     <body>
+    <div class="bg" >
         <?php 
 
     session_start();
@@ -125,7 +126,7 @@
 <input class = "a"  type = "text" value=" <?php echo $transcript ?>" name = "transcript" size = "70" readonly>
 </span>
 <!-- aria-label="Disabled input example"  -->
-       
+</div>   
 </div>
     </body>
 </html>
