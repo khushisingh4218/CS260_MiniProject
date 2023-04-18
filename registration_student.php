@@ -69,12 +69,9 @@
     </div>
 
     <div class="col-md-4">
-        <label for="placed" >Placed?</label>
-        <select name="mode" class="form-select">
-        <option value="sel">--select--</option>
-        <option value="Y">Yes</option>
-        <option value="N">No</option>
-        </select>
+    <label for="grade12" class="form-label">CPI:</label>
+		<input type="number"  name="cpi" class="form-control" required>
+        
 </div>
 
 <div class="col-md-4">
@@ -100,11 +97,11 @@
 </div>
 <div class="col-md-4">
         <label for="batch_year" >Grade corresponding to interest chosen:</label>
-		<input type="number" step="1" class="form-control" name="batch_year" required>
+		<input type="text" step="1" class="form-control" name="interest_grade" required>
 </div>
 <div class="col-md-4">
         <label for="batch_year" >Batch Year:</label>
-		<input type="text"  class="form-control" name="batch_year" required>
+		<input type="number"  class="form-control" name="batch_year" required>
 </div>
 
 <div class="col-md-4">
@@ -123,7 +120,7 @@
     </div>
 
     <div class="col-12">
-		<button type="next"  name="next" class="btn btn-primary"  >Next</button>
+		<button type="next"  name="submit" class="btn btn-primary"  >Submit</button>
         </div>
         </form>
         <!-- <div class="reg">
@@ -135,79 +132,26 @@
 <?php
 include 'server.php';
 
-if(isset($_POST["next"])){
-  echo '
-  <div class="spiheader">
-  <h3>Academic Details<h3><br>
-  </div>
-
-  <form method="post" class="row g-3"  action="">
- 
-  <div class="col-md-2">
-  <label for = "sem1" >SPI obtained in 1st semester: </label>
-  <input type = "number" class="form-control" name = "sem1">
-  </div>
-
-  <div class="col-md-2">
-  <label for = "sem2" >SPI obtained in 2ndsemester: </label>
-  <input type = "number" class="form-control" name = "sem2">
-  </div>
-
-  <div class="col-md-2">
-  <label for = "sem3" >SPI obtained in 3rd semester: </label>
-  <input type = "number" class="form-control" name = "sem3">
-  </div>
-  <div class="col-md-2">
-  <label for = "sem4" >SPI obtained in 4th semester: </label>
-  <input type = "number" class="form-control" name = "sem4">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2">
-  <label for = "sem5" >SPI obtained in 5th semester: </label>
-  <input type = "number" class="form-control" name = "sem5">
-  </div>
-  <div class="col-md-2">
-  <label for = "sem6" >SPI obtained in 6th semester: </label>
-  <input type = "number" class="form-control" name = "sem6">
-  </div>
-  <div class="col-md-2">
-  <label for = "sem7" >SPI obtained in 7th semester: </label>
-  <input type = "number" class="form-control" name = "sem7">
-  </div>
-
-<div class="col-md-2">
-  <label for = "sem8" >SPI obtained in 8th semester: </label>
-  <input type = "number" class="form-control" name = "sem8">
-  </div>
-  </div>
-
-  <div class="col-12">
-  <button type="submit"  name="submit" class="btn btn-primary"  >Register</button>
-      </div>
-      </form>
-
-  ';
-  echo '<br><br>';
-}
-
-
 if(isset($_POST["submit"])){
+
 $rollno=$_POST['rollno'];
 $name = $_POST["name"];
 $passw = $_POST["userpass"];
 $conf = $_POST["confpass"];
 $entity = "stud";
-$semester=$_POST['semester'];
-$cpi=$_POST['cpi'];
-$grade10=$_POST['grade10'];
-$grade12=$_POST['grade12'];
+$semester=(int)$_POST['semester'];
+$cpi=(double)$_POST['cpi'];
+$grade10=(int)$_POST['grade10'];
+$grade12=(int)$_POST['grade12'];
 $branch=$_POST['branch'];
-$age=$_POST['age'];
+$age=(int)$_POST['age'];
 $interest=$_POST['interest'];
-$batch_year=$_POST['batch_year'];
-$placed=$_POST['placed'];
+$batch_year=(int)$_POST['batch_year'];
+$placed='N';
 $transcript=$_POST['transcript'];
+$interest_grade=(double)$_POST['interest_grade'];
+
+
 
 if($conf ==$passw){
     $sql = "insert into login values('$rollno', '$passw', '$entity')";
@@ -215,7 +159,9 @@ if($conf ==$passw){
 
    
    
-    $sql1 ="insert into student_details values ('$rollno','$name','$semester','$cpi','$grade10','$grade12','$branch','$age','$interest','$batch_year','$placed','$transcript')";
+    $sql1 ="insert into student_details values ('$rollno','$name','$semester','$cpi','$grade10','$grade12','$branch','$age','$interest','$batch_year','N','$transcript','$interest_grade')";
+    
+    //$sql1 ="insert into student_details values ('3','3','3','3','3','3','3','3','3','3','N','3','6')";
     $result=$conn->query($sql1);
     
     
