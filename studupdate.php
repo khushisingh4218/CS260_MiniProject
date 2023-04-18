@@ -53,8 +53,8 @@
 <?php
 session_start();
 include 'server.php';
-$rollno = $_SESSION["id"];
-//$rollno = "2101CS71";
+//$rollno = $_SESSION["id"];
+$rollno = "2101CS71";
 $sql = "select * from student_details where rollno = '$rollno'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -104,9 +104,15 @@ $row = $result->fetch_assoc();
     </div>
 
     <div class="col-md-4">
-        <label for="age" class="form-label">Age:</label>
+        <label for="age" class="form-label">
     Age: </label>
     <input type = "number" class="form-control" value = <?php echo $row["age"]?> name = "age" required>
+    </div>
+
+    <div class="col-md-4">
+        <label for="interest_grade" class="form-label">
+    Grade in field of interest: </label>
+    <input type = "number" class="form-control" value = <?php echo $row["interest_grade"]?> name = "interest_grade" required>
     </div>
 
     <div class="col-md-4">
@@ -134,10 +140,10 @@ $row = $result->fetch_assoc();
     <input type = "number" class="form-control" value = <?php echo $row["batch_year"]?> name = "batch_year" required>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4" >
         <label for="transcript" >
     Transcript link: </label>
-    <input type = "text" value = '<?php echo $row["transcript"]?>' class="form-control" name = "transcript" required>
+    <input style="color:blue; text-decoration: underline;"  type = "url" value = '<?php echo $row["transcript"]?>' class="form-control" name = "transcript" required>
 </div>
     <!-- Placed: 
     <select name = "placed">
@@ -165,9 +171,9 @@ if(isset($_POST["submit"])){
     $grade10 = (int)$_POST["grade10"];
     $grade12 = (int)$_POST["grade12"];
     $age = (int)$_POST["age"];
-
+    $interest_grade = (double)$_POST["interest_grade"];
     $sql = "update student_details set name = '$name',semester = $semester,cpi = $cpi ,transcript = '$transcript', batch_year = $batch_year,interest = '$interest',age = $age,
-    branch ='$branch', grade10 = $grade10, grade12 = $grade12 where rollno = '$rollno'";
+    branch ='$branch', grade10 = $grade10, grade12 = $grade12, interest_grade = $interest_grade where rollno = '$rollno'";
    
     if( $conn->query($sql)){
         echo "Updation successful";
