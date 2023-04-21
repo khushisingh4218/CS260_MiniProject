@@ -1,3 +1,0 @@
-hello, I'm testing if my git is working.
-
-Update, it's working!!
